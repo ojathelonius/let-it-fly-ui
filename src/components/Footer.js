@@ -7,7 +7,9 @@ class Footer extends Component {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            flex: '0 0 60px'
+            flex: '0 0 60px',
+            backgroundColor: '#fcb130',
+            color: '#00266b'
         }
         return (
             <div style={footerStyle}>

@@ -1,10 +1,15 @@
 @import '~antd/dist/antd.css'; 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+
+html {
+  margin: 0;
+}
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #f7f7f7;
-  color: #001b4a;
+  color: #1f4a87;
+  margin: 0;
 }
 
 #root {

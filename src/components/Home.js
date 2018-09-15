@@ -10,7 +10,6 @@ class Home extends Component {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            margin: '0px 20px',
             flex: 1
         }
 
@@ -25,18 +24,28 @@ class Home extends Component {
 
         const tileContainer = {
             display: 'flex',
-            flex: '0.8',
             marginTop: '20px',
             flexWrap: 'wrap',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            width: '100%',
+            backgroundColor: '#00266b',
+            padding: '20px',
+            boxShadow: 'inset 0px 11px 8px -10px black, inset 0px -11px 8px -10px black'
         }
 
         const tileStyle = {
-            margin: '10px'
+            margin: '10px',
+            border: '1px solid #fcb130'
+
         }
 
         const bodyStyle = {
-            padding: 0
+            padding: 0,
+            borderTop: '1px solid #fcb130'
+        }
+        
+        const headStyle = {
+            backgroundColor: '#fcb130'
         }
         return (
             <div style={homeStyle}>
@@ -46,6 +55,7 @@ class Home extends Component {
                     <Card
                         title="Hitchike a flight"
                         style={tileStyle}
+                        headStyle={headStyle}
                         bodyStyle={bodyStyle}
                         hoverable={true}
                     >
@@ -54,6 +64,7 @@ class Home extends Component {
                     <Card
                         title="Extend your vacation"
                         style={tileStyle}
+                        headStyle={headStyle}
                         bodyStyle={bodyStyle}
                         hoverable={true}
                     >
