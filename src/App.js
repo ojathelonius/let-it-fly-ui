@@ -10,8 +10,6 @@ import Footer from './components/Footer';
 
 import './App.css';
 
-
-
 const store = createStore(allReducers, applyMiddleware(thunk));
 
 

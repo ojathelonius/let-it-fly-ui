@@ -5,7 +5,7 @@ class Footer extends Component {
 
         const footerStyle = {
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-evenly',
             alignItems: 'center',
             flex: '0 0 60px',
             backgroundColor: '#fcb130',
@@ -13,7 +13,8 @@ class Footer extends Component {
         }
         return (
             <div style={footerStyle}>
-                <div>Footer</div>
+                <div> <a href="https://appchallenge.singaporeair.com/en/challenges/appchallenge-2018" title="Singapore Airlines app challenge"> Singapor Airlines AppChallenge</a></div>
+                <div>See repo on <a href="https://github.com/ojathelonius/let-it-fly-ui" title="GitHub repo"> <i className="fab fa-github"></i> GitHub</a></div>
             </div>
         );
     }

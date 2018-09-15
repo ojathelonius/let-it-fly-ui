@@ -29,14 +29,12 @@ class Home extends Component {
             justifyContent: 'center',
             width: '100%',
             backgroundColor: '#00266b',
-            padding: '20px',
             boxShadow: 'inset 0px 11px 8px -10px black, inset 0px -11px 8px -10px black'
         }
 
         const tileStyle = {
-            margin: '10px',
-            border: '1px solid #fcb130'
-
+            margin: '20px',
+            border: '1px solid #fcb130',
         }
 
         const bodyStyle = {
