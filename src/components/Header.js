@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import singaporeLogo from '../assets/images/logo-singapore.png';
+
 
 class Header extends Component {
     render() {
@@ -19,11 +21,12 @@ class Header extends Component {
         const logoStyle = {
             height: '100px'
         };
-        return (
+        return (<Link to="/">
             <div style={headerStyle}>
                 <img src={singaporeLogo} style={logoStyle} alt="Logo Singapore Airlines" />
                 Let it fly
             </div>
+            </Link>
 
         );
     }

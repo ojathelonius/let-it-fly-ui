@@ -27,17 +27,19 @@ class App extends Component {
 
     return (
       <Provider store={store}>
-        <div style={bodyStyle}>
-          <Header />
-          <Router>
-            <Switch>
+        <Router>
+          <Switch>
+            <div style={bodyStyle}>
+              <Header />
+
               <Route exact path="/" component={Home} />
               <Route exact path="/flights" component={Flights} />
               <Route exact path="/experiences" component={ExperiencesContainer} />
-            </Switch>
-          </Router>
-          <Footer />
-        </div>
+
+              <Footer />
+            </div>
+          </Switch>
+        </Router>
       </Provider>
     );
   }
