@@ -34,3 +34,12 @@ a:focus {
 a:hover {
   color: white;
 }
+
+/* There doesn't seem to be an inline styling for ant modal headers */
+.ant-modal-header {
+  background-color: #fcb130
+}
+
+.ant-modal-title {
+  color: #1f4a87
+}

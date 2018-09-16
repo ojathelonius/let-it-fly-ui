@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Spin, Modal } from 'antd';
+import { Spin, Modal, Button } from 'antd';
 import RowTileContainer from './RowTileContainer';
 import ExperienceCardContainer from '../containers/ExperienceCardContainer';
+import { Map, TileLayer, Marker } from 'react-leaflet'
 
 class Experiences extends Component {
 
@@ -37,6 +38,26 @@ class Experiences extends Component {
             (<Spin size="large" />)
             : experienceList.map(experience => <ExperienceCardContainer experience={experience} key={experience.id} />)
 
+        const mapStyle = {
+            height: '300px',
+            marginBottom: '20px'
+        }
+
+        const experiencePosition = this.props.experienceModal ?
+            {
+                lat: this.props.selectedExperience.position.lat,
+                lng: this.props.selectedExperience.position.lon
+            } :
+            {
+                lat: 0,
+                lng: 0
+            };
+
+        const buttonContainerStyle = {
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '20px'
+        }
         return (
             <div style={experiencesStyle}>
                 <div style={largeFont}>We have several entertaining activities for you and your peers !</div>
@@ -52,6 +73,23 @@ class Experiences extends Component {
                     footer={null}
                     onCancel={() => this.props.closeExperienceModal()}
                 >
+                    <p>{this.props.selectedExperience.description}</p>
+                    <h2>Location</h2>
+                    <Map center={experiencePosition} zoom={13} style={mapStyle} zoomControl={false} attributionControl={false}>
+                        <TileLayer
+                            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={experiencePosition}>
+                        </Marker>
+                    </Map>
+                    <h2>Informations</h2>
+                    <div>From {this.props.selectedExperience.startingAt} to {this.props.selectedExperience.endingAt}</div>
+                    <div>{this.props.selectedExperience.requirements ? this.props.selectedExperience.requirements : null}</div>
+
+                    <div style={buttonContainerStyle}>
+                        <Button type="primary" size='large' style={{ backgroundColor: '#1f4a87' }}>See on the website</Button>
+                    </div>
                 </Modal>
             </div>
         );

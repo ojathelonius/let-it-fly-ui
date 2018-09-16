@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'antd';
+import airbnbLogo from '../assets/images/logo-airbnb.png';
+import tripadvisorLogo from '../assets/images/logo-tripadvisor.png';
 
 class ExperienceCard extends Component {
 
@@ -20,6 +22,23 @@ class ExperienceCard extends Component {
             backgroundColor: '#fcb130'
         }
 
+        
+        const logoStyle = {
+            position: 'absolute',
+            bottom: '10px',
+            right: '10px',
+            maxWidth: '150px'
+        }
+
+        let partnerLogo;
+
+        if (this.props.experience.source === 'airbnb') {
+            partnerLogo = (<img src={airbnbLogo} alt='AirBnB logo'  style={logoStyle}/>)
+        } else if (this.props.experience.source === 'tripadvisor') {
+            partnerLogo = (<img src={tripadvisorLogo} alt='TripAdvisor logo' style={logoStyle} />)
+        }
+
+
         return (
             <Card
                 title={this.props.experience.title}
@@ -30,6 +49,7 @@ class ExperienceCard extends Component {
                 onClick={() => this.props.openExperienceModal(this.props.experience)}
             >
                 <img src={this.props.experience.image} alt={this.props.experience.title} />
+                {partnerLogo}
             </Card>
 
         );
