@@ -57,15 +57,18 @@ class Home extends Component {
                             <img src={flightImg} alt="Hitch-hike a flight" />
                         </Card>
                     </Link>
-                    <Card
-                        title="Extend your stay"
-                        style={tileStyle}
-                        headStyle={headStyle}
-                        bodyStyle={bodyStyle}
-                        hoverable={true}
-                    >
-                        <img src={entertainmentImg} alt="Extend your stay" />
-                    </Card></RowTileContainer>
+                    <Link to="/experiences">
+                        <Card
+                            title="Extend your stay"
+                            style={tileStyle}
+                            headStyle={headStyle}
+                            bodyStyle={bodyStyle}
+                            hoverable={true}
+                        >
+                            <img src={entertainmentImg} alt="Extend your stay" />
+                        </Card>
+                    </Link>
+                </RowTileContainer>
             </div>
         );
     }

@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Flights from './components/Flights';
+import ExperiencesContainer from './containers/ExperiencesContainer';
 
 import './App.css';
 
@@ -32,6 +33,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/flights" component={Flights} />
+              <Route exact path="/experiences" component={ExperiencesContainer} />
             </Switch>
           </Router>
           <Footer />

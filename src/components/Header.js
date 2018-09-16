@@ -24,6 +24,7 @@ class Header extends Component {
                 <img src={singaporeLogo} style={logoStyle} alt="Logo Singapore Airlines" />
                 Let it fly
             </div>
+
         );
     }
 }
