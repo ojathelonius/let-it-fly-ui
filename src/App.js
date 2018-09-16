@@ -19,7 +19,7 @@ class App extends Component {
     const bodyStyle = {
       display: 'flex',
       flexDirection: 'column',
-      height: '100%'
+      flex: 1
     }
     return (
       <Provider store={store}>

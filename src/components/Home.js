@@ -14,12 +14,15 @@ class Home extends Component {
         }
 
         const largeFont = {
-            fontSize: '20px'
+            fontSize: '20px',
+            margin: '10px 10px 0px 10px',
+            textAlign: 'center'
         }
 
         const mediumFont = {
             fontSize: '18px',
-            marginTop: '10px'
+            margin: '10px 10px 0px 10px',
+            textAlign: 'center'
         }
 
         const tileContainer = {
@@ -51,22 +54,22 @@ class Home extends Component {
                 <div style={mediumFont}>Please let us work together on this issue by selecting an option below.</div>
                 <div style={tileContainer}>
                     <Card
-                        title="Hitchike a flight"
+                        title="Hitch-hike a flight"
                         style={tileStyle}
                         headStyle={headStyle}
                         bodyStyle={bodyStyle}
                         hoverable={true}
                     >
-                    <img src={flightImg} alt="Hitchike a flight"/>
+                    <img src={flightImg} alt="Hitch-hike a flight"/>
                     </Card>
                     <Card
-                        title="Extend your vacation"
+                        title="Extend your stay"
                         style={tileStyle}
                         headStyle={headStyle}
                         bodyStyle={bodyStyle}
                         hoverable={true}
                     >
-                    <img src={entertainmentImg} alt="Extend your vacation"/>
+                    <img src={entertainmentImg} alt="Extend your stay"/>
                     </Card>
                 </div>
             </div>
