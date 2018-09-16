@@ -27,8 +27,9 @@ class ExperienceCard extends Component {
                 headStyle={headStyle}
                 bodyStyle={bodyStyle}
                 hoverable={true}
+                onClick={() => this.props.openExperienceModal(this.props.experience)}
             >
-            <img src={this.props.experience.image} alt={this.props.experience.title} />
+                <img src={this.props.experience.image} alt={this.props.experience.title} />
             </Card>
 
         );

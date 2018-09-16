@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Spin, Modal } from 'antd';
 import RowTileContainer from './RowTileContainer';
-import ExperienceCard from './ExperienceCard';
+import ExperienceCardContainer from '../containers/ExperienceCardContainer';
 
 class Experiences extends Component {
-
 
     componentWillMount() {
         /* Singapor airport for demo purposes */
@@ -25,19 +25,34 @@ class Experiences extends Component {
             textAlign: 'center'
         }
 
+        const mediumFont = {
+            fontSize: '18px',
+            margin: '10px 10px 0px 10px',
+            textAlign: 'center'
+        }
+
         const experienceList = this.props.experiences;
 
-        const experienceDisplay = experienceList.length == 0 ?
-            ''
-            : experienceList.map(experience => <ExperienceCard experience={experience} key={experience.id}/>)
+        const experienceDisplay = experienceList.length === 0 ?
+            (<Spin size="large" />)
+            : experienceList.map(experience => <ExperienceCardContainer experience={experience} key={experience.id} />)
 
-        console.log(experienceList);
         return (
             <div style={experiencesStyle}>
-                <div style={largeFont}>We have several entertaining activities for you and your peers. See below !</div>
+                <div style={largeFont}>We have several entertaining activities for you and your peers !</div>
+                <div style={mediumFont}>Everything will be arranged until you can get on the next flight towards your destination, from housing to transportation and any accomodation necessary.</div>
                 <RowTileContainer>
                     {experienceDisplay}
                 </RowTileContainer>
+
+                <Modal
+                    title={this.props.selectedExperience.title}
+                    visible={this.props.experienceModal}
+                    centered
+                    footer={null}
+                    onCancel={() => this.props.closeExperienceModal()}
+                >
+                </Modal>
             </div>
         );
     }

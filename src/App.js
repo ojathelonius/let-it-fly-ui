@@ -35,7 +35,6 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/flights" component={Flights} />
               <Route exact path="/experiences" component={ExperiencesContainer} />
-
               <Footer />
             </div>
           </Switch>
