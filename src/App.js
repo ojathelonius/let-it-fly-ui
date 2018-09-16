@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import Header from './components/Header';
 import allReducers from './reducers/allReducers';
 import thunk from 'redux-thunk';
@@ -11,7 +12,7 @@ import Flights from './components/Flights';
 
 import './App.css';
 
-const store = createStore(allReducers, applyMiddleware(thunk));
+const store = createStore(allReducers, composeWithDevTools(applyMiddleware(thunk)));
 
 
 class App extends Component {
