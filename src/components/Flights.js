@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Card } from 'antd';
-import { Link } from 'react-router-dom';
-import RowTileContainer from './RowTileContainer';
+import ColTileContainer from './ColTileContainer';
 import flightImg from '../assets/images/flight-img.jpg';
 import entertainmentImg from '../assets/images/entertainment-img.jpg';
 
-class Home extends Component {
+class Flights extends Component {
+    
     render() {
-        const homeStyle = {
+        const flightsStyle = {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -30,45 +30,41 @@ class Home extends Component {
         const tileStyle = {
             margin: '20px',
             border: '1px solid #fcb130',
+            width: '500px'
         }
 
         const bodyStyle = {
-            padding: 0,
             borderTop: '1px solid #fcb130'
         }
 
         const headStyle = {
             backgroundColor: '#fcb130'
         }
-
+        
         return (
-            <div style={homeStyle}>
-                <div style={largeFont}>We are sorry that you cannot make it on board...</div>
-                <div style={mediumFont}>Please let us work together on this issue by selecting an option below.</div>
-                <RowTileContainer>
-                    <Link to="/flights">
-                        <Card
-                            title="Hitch-hike a flight"
-                            style={tileStyle}
-                            headStyle={headStyle}
-                            bodyStyle={bodyStyle}
-                            hoverable={true}
-                        >
-                            <img src={flightImg} alt="Hitch-hike a flight" />
-                        </Card>
-                    </Link>
+            <div style={flightsStyle}>
+                <div style={largeFont}>Here are some flight options for you to consider : </div>
+                <ColTileContainer><Card
+                    title="Flight to Madrid"
+                    style={tileStyle}
+                    headStyle={headStyle}
+                    bodyStyle={bodyStyle}
+                    hoverable={true}
+                >
+                    <p>Toast toast</p>
+                </Card>
                     <Card
-                        title="Extend your stay"
+                        title="Flight to Paris"
                         style={tileStyle}
                         headStyle={headStyle}
                         bodyStyle={bodyStyle}
                         hoverable={true}
                     >
-                        <img src={entertainmentImg} alt="Extend your stay" />
-                    </Card></RowTileContainer>
+                        <p>Toast toast</p>
+                    </Card></ColTileContainer>
             </div>
         );
     }
 }
 
-export default Home;
+export default Flights;

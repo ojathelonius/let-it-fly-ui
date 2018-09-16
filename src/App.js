@@ -7,6 +7,7 @@ import allReducers from './reducers/allReducers';
 import thunk from 'redux-thunk';
 import Home from './components/Home';
 import Footer from './components/Footer';
+import Flights from './components/Flights';
 
 import './App.css';
 
@@ -21,6 +22,7 @@ class App extends Component {
       flexDirection: 'column',
       flex: 1
     }
+
     return (
       <Provider store={store}>
         <div style={bodyStyle}>
@@ -28,6 +30,7 @@ class App extends Component {
           <Router>
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/flights" component={Flights} />
             </Switch>
           </Router>
           <Footer />
