@@ -11,6 +11,7 @@
     "npm": "^6.4.1",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "react-flipcard-2": "^0.3.2",
     "react-leaflet": "^2.0.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import FlightsContainer from './containers/FlightsContainer';
 import ExperiencesContainer from './containers/ExperiencesContainer';
+import BookingsContainer from './containers/BookingsContainer';
 
 import './App.css';
 
@@ -35,6 +36,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/flights" component={FlightsContainer} />
               <Route exact path="/experiences" component={ExperiencesContainer} />
+              <Route exact path="/bookings" component={BookingsContainer} />
               <Footer />
             </div>
           </Switch>

@@ -41,6 +41,9 @@ a:hover {
     color: inherit;
 }
 
+a span:hover {
+    text-decoration: underline;
+}
 /* There doesn't seem to be an inline styling for ant modal headers */
 .ant-modal-header {
     background-color: #fcb130;
