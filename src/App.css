@@ -24,6 +24,11 @@ body {
     src: local("NoTime"), url("./assets/fonts/NoTime.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'Bebas';
+  src: local("Bebas"), url("./assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+
 a {
     color: inherit;
 }

@@ -5,28 +5,70 @@ import singaporeLogo from '../assets/images/logo-singapore.png';
 
 class Header extends Component {
     render() {
-        const headerStyle = {
+        const headerContainerStyle = {
             backgroundColor: '#f7f7f7',
             color: '#1f4a87',
             fontFamily: 'NoTime',
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: 'center',
             fontSize: '50px',
             textTransform: 'uppercase',
-            flexDirection: 'column',
+            flexDirection: 'row',
             marginTop: '25px'
         }
+
+        const logoContainerStyle = {
+            display: 'flex',
+            flexDirection: 'column'
+        };
 
         const logoStyle = {
             height: '100px'
         };
-        return (<Link to="/">
-            <div style={headerStyle}>
-                <img src={singaporeLogo} style={logoStyle} alt="Logo Singapore Airlines" />
-                Let it fly
+
+        const sideMenuStyle = {
+            flex: 1,
+            height: '80px',
+            fontFamily: 'Bebas, sans-serif',
+            fontSize: '25px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+        }
+        const sideMenuStyleLeft = {
+            ...sideMenuStyle,
+            backgroundImage: 'linear-gradient(to right, #fcb130 , #f7f7f7)'
+        }
+
+        const sideMenuStyleRight = {
+            ...sideMenuStyle,
+            backgroundImage: 'linear-gradient(to left, #fcb130 , #f7f7f7)'
+        }
+
+        const menuHeaderStyle = {
+            fontSize: '25px'
+        }
+
+        const headerIconStyle = {
+            marginRight: '10px'
+        }
+
+        const headerLink = {
+            display: 'flex',
+            alignItems: 'center'
+        }
+
+        return (<div style={headerContainerStyle}>
+            <div style={sideMenuStyleLeft}><Link to="/profile" style={headerLink}><i className="fas fa-user" style={headerIconStyle}></i><span style={menuHeaderStyle} className='mobile-hidden'>View my profile</span></Link></div>
+            <Link to="/">
+                <div style={logoContainerStyle}>
+                    <img src={singaporeLogo} style={logoStyle} alt="Logo Singapore Airlines" />
+                    Let it fly
             </div>
-            </Link>
+            </Link >
+            <div style={sideMenuStyleRight}><Link to="/bookings" style={headerLink}><i className="fas fa-box-open" style={headerIconStyle}></i><span style={menuHeaderStyle} className='mobile-hidden'>Check my bookings</span></Link></div>
+        </div >
 
         );
     }
