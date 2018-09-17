@@ -6,7 +6,7 @@ export const fetchWeather = (airportCode) => (async (dispatch) => {
     try {
         const response = await axios({
             method: 'get',
-            url: `http://localhost:3001/api/weather/${airportCode}`
+            url: `https://api.johanet.fr/api/weather/${airportCode}`
         });
         dispatch(receiveWeather(response.data));
     } catch(e) {
