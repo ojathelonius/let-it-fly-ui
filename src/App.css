@@ -1,45 +1,82 @@
-@import '~antd/dist/antd.css'; 
-@import '~normalize.css/normalize.css'; 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "~antd/dist/antd.css";
+@import "~normalize.css/normalize.css";
 
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 html {
-  margin: 0;
+    margin: 0;
 }
+
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f7f7f7;
-  color: #1f4a87;
-  margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #1f4a87;
+    margin: 0;
 }
 
 #root {
-  display: flex;
-  min-height: 100%;
+    display: flex;
+    min-height: 100%;
 }
 
 @font-face {
-  font-family: 'NoTime';
-  src: local('NoTime'), url('./assets/fonts/NoTime.ttf') format('truetype');
+    font-family: 'NoTime';
+    src: local("NoTime"), url("./assets/fonts/NoTime.ttf") format("truetype");
 }
 
 a {
-  color: inherit;
+    color: inherit;
 }
 
 a:focus {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover {
-  color: white;
+    color: inherit;
 }
 
 /* There doesn't seem to be an inline styling for ant modal headers */
 .ant-modal-header {
-  background-color: #fcb130
+    background-color: #fcb130;
 }
 
 .ant-modal-title {
-  color: #1f4a87
+    color: #1f4a87;
+}
+
+/* Typical media query */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .mobile-hidden {
+        display: none;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .mobile-hidden {
+        display: none;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .mobile-hidden {
+        display: flex;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .mobile-hidden {
+        display: flex;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .mobile-hidden {
+        display: flex;
+    }
 }
