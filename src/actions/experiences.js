@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const fetchExperiences = (airportCode, tag) => (async (dispatch) => {
-    dispatch(requestExperiences);
+    dispatch(requestExperiences());
     try {
         const response = await axios({
             method: 'get',

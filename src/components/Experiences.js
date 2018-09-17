@@ -88,7 +88,7 @@ class Experiences extends Component {
                     <div>{this.props.selectedExperience.requirements ? this.props.selectedExperience.requirements : null}</div>
 
                     <div style={buttonContainerStyle}>
-                        <Button type="primary" size='large' style={{ backgroundColor: '#1f4a87' }}>See on the website</Button>
+                        <Button type="primary" size='large' style={{ backgroundColor: '#1f4a87' }} onClick={() => this.props.bookExperience(this.props.selectedExperience)}>Book</Button>
                     </div>
                 </Modal>
             </div>
