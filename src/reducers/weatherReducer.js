@@ -1,5 +1,5 @@
 const initialState = {
-    weather: {},
+    weather: null,
     isFetching: false
 }
 

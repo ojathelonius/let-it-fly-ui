@@ -2,11 +2,11 @@ import axios from 'axios';
 
 
 export const fetchWeather = (airportCode) => (async (dispatch) => {
-    dispatch(requestWeather);
+    dispatch(requestWeather());
     try {
         const response = await axios({
             method: 'get',
-            url: `http://localhost:3001/api/weather/${airportCode}`
+            url: `http://localhost:3001/api/weather/`
         });
         dispatch(receiveWeather(response.data));
     } catch(e) {

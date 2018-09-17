@@ -4,6 +4,16 @@ import FlightCardContainer from '../containers/FlightCardContainer';
 
 class Flights extends Component {
 
+    componentWillMount() {
+        this.props.updateWeather();
+    }
+
+    getAirportWeather(airportCode) {
+        return this.props.weather ?
+            this.props.weather.find(airportWeather => airportWeather.location === airportCode)
+            : {};
+    }
+
     render() {
         const flightsStyle = {
             display: 'flex',
@@ -23,8 +33,8 @@ class Flights extends Component {
             <div style={flightsStyle}>
                 <div style={largeFont}>Here are some flight options for you to consider : </div>
                 <ColTileContainer>
-                    <FlightCardContainer airportCode='SIN'/>
-                    <FlightCardContainer airportCode='SFO'/>
+                    <FlightCardContainer airportCode='SIN' weather={this.getAirportWeather('SIN')} />
+                    <FlightCardContainer airportCode='SFO' weather={this.getAirportWeather('SFO')}/>
                 </ColTileContainer>
             </div>
         );

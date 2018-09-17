@@ -3,13 +3,7 @@ import { Card } from 'antd';
 
 class FlightCard extends Component {
 
-    componentWillMount() {
-        this.props.updateWeather(this.props.airportCode);
-    }
-
     render() {
-
-
         const tileStyle = {
             margin: '20px',
             border: '1px solid #fcb130',
@@ -23,9 +17,11 @@ class FlightCard extends Component {
         const headStyle = {
             backgroundColor: '#fcb130'
         }
-        console.log(this.props.weather);
 
-        const currentWeather = this.props.weather.currentWeather ? this.props.weather.currentWeather : 'Loading current weather...';
+        const currentWeather = this.props.isFetchingWeather ? 'Fetching data...' :
+            (<p>It's currently {this.props.weather.temperature} degrees in {this.props.weather.city}, although it feels more like {this.props.weather.feelsLikeTemperature}.</p>)
+
+
         return (
             <Card
                 title="Flight to Paris"
@@ -34,7 +30,9 @@ class FlightCard extends Component {
                 bodyStyle={bodyStyle}
                 hoverable={true}
             >
-            <p>It's currently {currentWeather.temperature} degrees in {currentWeather.location}, although it feels more like {currentWeather.feelsLikeTemperature}.</p>
+                <h2>Weather</h2>
+                {currentWeather}
+
             </Card>
 
         );

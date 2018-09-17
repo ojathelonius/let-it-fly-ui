@@ -1,12 +1,9 @@
 import { connect } from 'react-redux'
 import FlightCard from '../components/FlightCard'
-import { fetchWeather } from '../actions/weather'
 
-const mapStateToProps = (state, ownProps) => ({ weather: state.weatherReducer.weather, isFetchingWeather : state.weatherReducer.isFetching });
+const mapStateToProps = (state, ownProps) => ({ isFetchingWeather: state.weatherReducer.isFetching });
 
-const mapDispatchToProps = (dispatch) => ({
-    updateWeather: (airportCode) => dispatch(fetchWeather(airportCode))
-});
+const mapDispatchToProps = (dispatch) => ({});
 
 const FlightCardContainer = connect(
     mapStateToProps,

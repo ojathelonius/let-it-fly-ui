@@ -8,7 +8,7 @@ import allReducers from './reducers/allReducers';
 import thunk from 'redux-thunk';
 import Home from './components/Home';
 import Footer from './components/Footer';
-import Flights from './components/Flights';
+import FlightsContainer from './containers/FlightsContainer';
 import ExperiencesContainer from './containers/ExperiencesContainer';
 
 import './App.css';
@@ -33,7 +33,7 @@ class App extends Component {
               <Header />
 
               <Route exact path="/" component={Home} />
-              <Route exact path="/flights" component={Flights} />
+              <Route exact path="/flights" component={FlightsContainer} />
               <Route exact path="/experiences" component={ExperiencesContainer} />
               <Footer />
             </div>
