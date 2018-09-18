@@ -71,20 +71,20 @@ a span:hover {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .mobile-hidden {
-        display: flex;
+        display: inline-flex;
     }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .mobile-hidden {
-        display: flex;
+        display: inline-flex;
     }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .mobile-hidden {
-        display: flex;
+        display: inline-flex;
     }
 }
