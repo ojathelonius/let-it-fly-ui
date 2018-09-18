@@ -1,11 +1,12 @@
 import axios from 'axios';
+import config from '../config';
 
 export const fetchExperiences = (airportCode, tag) => (async (dispatch) => {
     dispatch(requestExperiences());
     try {
         const response = await axios({
             method: 'get',
-            url: `http://localhost:3001/api/experiences`,
+            url: `${config.apiUrl}/experiences`,
             params: {
                 airport: airportCode,
                 tag: tag
