@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { Spin } from 'antd';
 import ColTileContainer from './ColTileContainer';
 import FlightCardContainer from '../containers/FlightCardContainer';
 
 class Flights extends Component {
 
     componentWillMount() {
+        /* SIN by default, as the Singapore Airlines API only provides flights from this airport */
+        this.props.updateFlights('SIN', this.props.user.initialDestination);
         this.props.updateWeather();
     }
 
@@ -28,13 +31,14 @@ class Flights extends Component {
             margin: '10px 10px 0px 10px',
             textAlign: 'center'
         }
-
+        if (this.props.isFetchingFlights || !this.props.flights) {
+            return (<Spin size="large" />);
+        }
         return (
             <div style={flightsStyle}>
-                <div style={largeFont}>Here are some flight options for you to consider : </div>
+                <div style={largeFont}>Your initial flight was headed to {this.props.user.prettyInitialDestination}. Below are some alternative paths that you can use :</div>
                 <ColTileContainer>
-                    <FlightCardContainer airportCode='SIN' weather={this.getAirportWeather('SIN')} />
-                    <FlightCardContainer airportCode='SFO' weather={this.getAirportWeather('SFO')}/>
+                    {this.props.flights.map(flight => (<FlightCardContainer flight={flight} weather={this.getAirportWeather('SIN')} key={flight.id}/>))}
                 </ColTileContainer>
             </div>
         );

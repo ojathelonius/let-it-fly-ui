@@ -1,13 +1,12 @@
 import axios from 'axios';
-
+import config from '../config';
 
 export const fetchWeather = (airportCode) => (async (dispatch) => {
     dispatch(requestWeather());
     try {
         const response = await axios({
             method: 'get',
-            url: `https://api.johanet.fr/api/weather/`
-
+            url: `${config.apiUrl}/weather/`
         });
         dispatch(receiveWeather(response.data));
     } catch(e) {

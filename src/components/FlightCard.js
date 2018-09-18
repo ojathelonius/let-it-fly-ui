@@ -18,24 +18,38 @@ class FlightCard extends Component {
             backgroundColor: '#fcb130'
         }
 
+        const rowItinerary = {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center'
+        }
+
         const currentWeather = this.props.isFetchingWeather ? 'Fetching data...' :
             (<p>It's currently {this.props.weather.temperature} degrees in {this.props.weather.city}, although it feels more like {this.props.weather.feelsLikeTemperature}.</p>)
 
 
         return (
-            <Card
-                title="Flight to Paris"
-                style={tileStyle}
-                headStyle={headStyle}
-                bodyStyle={bodyStyle}
-                hoverable={true}
-            >
-                <h2>Weather</h2>
-                {currentWeather}
+            <div style={rowItinerary}>
+                {this.props.flight.itinerary.map((curFlight, index, arr) => {
+                    const arrow = (arr.length -1 === index) ?
+                    '' 
+                    : (<i class="fas fa-arrow-right"></i>);
 
-            </Card>
+                    return (
+                        <Card
+                            title={<span>{curFlight.code} - {curFlight.fromCity} to {curFlight.toCity}</span>}
+                            style={tileStyle}
+                            headStyle={headStyle}
+                            bodyStyle={bodyStyle}
+                            hoverable={true}
+                        >
+                        </Card>
 
+                    )
+                })}
+            </div>
         );
+
     }
 }
 
