@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { Card } from 'antd';
+import { Card, Button, Icon } from 'antd';
 
 class FlightCard extends Component {
 
     render() {
         const tileStyle = {
-            margin: '20px',
+            margin: '5px 20px',
             border: '1px solid #fcb130',
             flex: '0 1 500px'
         }
 
         const bodyStyle = {
-            borderTop: '1px solid #fcb130'
+            borderTop: '1px solid #fcb130',
+            position: 'relative'
         }
 
         const headStyle = {
@@ -23,7 +24,6 @@ class FlightCard extends Component {
             justifyContent: 'center',
             alignItems: 'center',
             boxShadow: 'inset 0 0 4px #000000',
-            margin: '10px',
             width: '95%',
             flexWrap: 'wrap'
         }
@@ -44,38 +44,72 @@ class FlightCard extends Component {
             alignItems: 'center'
         }
 
+        const mainContainer = {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            margin: '15px'
+        }
+
+        const titleStyle = {
+            color: 'white',
+            fontSize: '16px',
+            marginBottom: '5px',
+            textAlign: 'center'
+        }
+
+        const bookBtnStyle = {
+            position: 'absolute',
+            bottom: '5px',
+            right: '5px',
+            backgroundColor: '#fcb130',
+            color: '#00266b',
+            border: '1px solid #fcb130',
+        }
         return (
-            <div style={rowItinerary}>
-                {itinerary.map((curFlight, index, arr) => {
+            <div style={mainContainer}>
+                {(itinerary.length) > 1 ? (
+                    <span style={titleStyle}>Stay in <span style={{fontWeight: 'bold'}}>{itinerary[0].toCity}</span> and reach your destination in <span style={{fontWeight: 'bold'}}>{this.props.flight.timeInBetween}</span>.</span>
+                ) : (
+                        <span style={titleStyle}>Take a straight flight to {itinerary[0].toCity} and you'll be there in <span style={{fontWeight: 'bold'}}>{itinerary[0].duration}</span> !</span>
+                    )}
 
-                    if (curFlight == 'arrow') {
-                        return (<i className="fas fa-arrow-right mobile-hidden" style={{ color: 'white' }}></i>);
-                    }
-                    return (
+                <div style={rowItinerary}>
+                    {itinerary.map((curFlight, index, arr) => {
 
-                        <Card
-                            title={<span>{curFlight.code} - {curFlight.fromCity} to {curFlight.toCity}</span>}
-                            style={tileStyle}
-                            headStyle={headStyle}
-                            bodyStyle={bodyStyle}
-                            hoverable={true}
-                        >
+                        if (curFlight == 'arrow') {
+                            return (<i className="fas fa-arrow-right mobile-hidden" style={{ color: 'white' }}></i>);
+                        }
+                        return (
+
+                            <Card
+                                title={<span>{curFlight.code} - {curFlight.fromCity} to {curFlight.toCity}</span>}
+                                style={tileStyle}
+                                headStyle={headStyle}
+                                bodyStyle={bodyStyle}
+                                hoverable={true}
+                            >
 
 
-                            <div style={iconContainer}>
-                                <i class="far fa-calendar" style={iconStyle}></i>{curFlight.departureDate}
+                                <div style={iconContainer}>
+                                    <i class="far fa-calendar" style={iconStyle}></i>{curFlight.departureDate}
+                                </div>
+                                <div style={iconContainer}>
+                                    <i class="far fa-clock" style={iconStyle}></i>{curFlight.departureTime} ({curFlight.duration})
                             </div>
-                            <div style={iconContainer}> 
-                                <i class="far fa-clock" style={iconStyle}></i>{curFlight.departureTime} ({curFlight.duration})
-                            </div>
-                            <div style={iconContainer}>
-                                <i class="fas fa-plane" style={iconStyle}></i>{curFlight.airline}
-                            </div>
+                                <div style={iconContainer}>
+                                    <i class="fas fa-plane" style={iconStyle}></i>{curFlight.airline}
+                                </div>
 
-                        </Card>
+                                <Button type="primary" style = {bookBtnStyle}>
+                                <Icon type="check" />Book
+                                </Button>
+                            </Card>
 
-                    )
-                })}
+                        )
+                    })}
+                </div>
             </div>
         );
 
