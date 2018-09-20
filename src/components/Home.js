@@ -54,7 +54,7 @@ class Home extends Component {
                             bodyStyle={bodyStyle}
                             hoverable={true}
                         >
-                            <img src={flightImg} alt="Hitch-hike a flight" />
+                            <img src={flightImg} alt="Hitch-hike a flight" style={{maxWidth: '100%'}}/>
                         </Card>
                     </Link>
                     <Link to="/experiences">
@@ -65,7 +65,7 @@ class Home extends Component {
                             bodyStyle={bodyStyle}
                             hoverable={true}
                         >
-                            <img src={entertainmentImg} alt="Extend your stay" />
+                            <img src={entertainmentImg} alt="Extend your stay" style={{maxWidth: '100%'}}/>
                         </Card>
                     </Link>
                 </RowTileContainer>
