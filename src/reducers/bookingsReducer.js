@@ -1,6 +1,6 @@
 const initialState = {
     experiences: [],
-    flights: []
+    flight: null
 }
 
 const bookingsReducer = (state = initialState, action) => {
@@ -14,8 +14,7 @@ const bookingsReducer = (state = initialState, action) => {
         case 'ADD_BOOKING_FLIGHT':
             return {
                 ...state,
-                flights: [...state.flights,
-                action.payload]
+                flight: action.payload
             }
         default:
             return state

@@ -120,10 +120,10 @@ class BookedExperienceCard extends Component {
                     <div style={{ alignSelf: 'center', marginBottom: '10px' }}>{this.props.experience.description}</div>
                     <h2>Informations</h2>
                     <div>
-                        <i class="fas fa-exclamation" style={iconStyle}></i>{this.props.experience.requirements ? this.props.experience.requirements : 'None'}
+                        <i className="fas fa-exclamation" style={iconStyle}></i>{this.props.experience.requirements ? this.props.experience.requirements : 'None'}
                     </div>
                     <div>
-                        <i class="far fa-clock" style={iconStyle}></i>{this.props.experience.startingAt + ' - ' + this.props.experience.endingAt}
+                        <i className="far fa-clock" style={iconStyle}></i>{this.props.experience.startingAt + ' - ' + this.props.experience.endingAt}
                     </div>
 
                 </div>

@@ -5,6 +5,7 @@ import modalReducer from './modalReducer';
 import bookingsReducer from './bookingsReducer';
 import flightsReducer from './flightsReducer';
 import userReducer from './userReducer';
+import hotelsReducer from './hotelsReducer';
 
 const allReducers = combineReducers({
     weatherReducer,
@@ -12,7 +13,8 @@ const allReducers = combineReducers({
     modalReducer,
     bookingsReducer,
     flightsReducer,
-    userReducer
+    userReducer,
+    hotelsReducer
 });
 
 export default allReducers;

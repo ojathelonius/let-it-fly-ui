@@ -103,7 +103,6 @@ class FlightCard extends Component {
                                 style={tileStyle}
                                 headStyle={headStyle}
                                 bodyStyle={bodyStyle}
-                                hoverable={true}
                                 key={curFlight.id}
                             >
 
@@ -126,7 +125,7 @@ class FlightCard extends Component {
                         )
                     })}
                 </div>
-                <div style={bookBtnStyle}  onClick={() => this.props.bookFlight(this.props.flight)}><i class="fas fa-plane-departure" style={iconStyle}></i>Book !</div>
+                <div style={bookBtnStyle}  onClick={() => this.props.bookFlight(this.props.flight)}><i className="fas fa-plane-departure" style={iconStyle}></i>Book !</div>
             </div>
         );
 

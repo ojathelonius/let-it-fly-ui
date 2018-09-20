@@ -36,15 +36,11 @@ class Bookings extends Component {
             )
         ) : '';
 
-        const flightsDisplay = this.props.flights.length > 0 ? this.props.flights.map(flight =>
-            (
-                <BookedFlightCard flight={flight} key={flight.id} />
-            )
-        ) : '';
+        const flightDisplay = (<BookedFlightCard flight={this.props.flight}/>)
 
-        const hasBookings = (this.props.experiences.length === 0 && this.props.flights.length === 0);
+        const hasBookings = (this.props.experiences.length > 0 || this.props.flight);
 
-        if (hasBookings) {
+        if (!hasBookings) {
             return (
                 <div style={bookingsContainer}>
                     <div style={largeFont}>
@@ -60,8 +56,8 @@ class Bookings extends Component {
                     </div>
                     {this.props.experiences.length > 0 ? (<h1 style={titleStyle}>Experiences</h1>) : ''}
                     {experiencesDisplay}
-                    {this.props.flights.length > 0 ? (<h1 style={titleStyle}>Flights</h1>) : ''}
-                    {flightsDisplay}
+                    {this.props.flight ? (<h1 style={titleStyle}>Flight</h1>) : ''}
+                    {flightDisplay}
                 </div>
             );
         }

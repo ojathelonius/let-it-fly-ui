@@ -59,8 +59,9 @@ class BookedFlightCard extends Component {
             width: '95%',
             flexWrap: 'wrap'
         }
-
-        console.log(this.props.flight);
+        if(!this.props.flight) {
+            return ('');
+        }
         const itinerary = [].concat(...this.props.flight.itinerary.map(e => ['arrow', e])).slice(1);
         return (<div style={rowItinerary}>
             {itinerary.map((curFlight, index, arr) => {

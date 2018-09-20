@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Spin } from 'antd';
+import { Link } from 'react-router-dom';
 import ColTileContainer from './ColTileContainer';
 import FlightCardContainer from '../containers/FlightCardContainer';
 
@@ -34,20 +35,30 @@ class Flights extends Component {
 
         const alreadyBooked = {
             display: 'flex',
+            flexDirection: 'column',
             flex: '1',
             justifyContent: 'center',
             alignItems: 'center',
             color: '#1f4a87',
             fontSize: '22px',
             textAlign: 'center'
+        }
 
+        const hotelSuggestion = {
+            fontSize: '20px',
+            marginTop: '15px'
+        }
+        
+        const hotelsLink = {
+            fontWeight: 'bold',
+            cursor: 'pointer'
         }
 
         if (this.props.isFetchingFlights || !this.props.flights) {
             return (<Spin size="large" />);
         }
         if(this.props.hasBookedFlights) {
-            return (<div style={alreadyBooked}>Thank you for booking your flight !</div>)
+            return (<div style={alreadyBooked}><div>Thank you for booking your flight !</div><div style={hotelSuggestion}>Staying overnight ? Check out our <Link to="/hotels" ><span style={hotelsLink}>custom picked hotels</span></Link> near your stop-over location !</div></div>)
         }
         return (
             <div style={flightsStyle}>

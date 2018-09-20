@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
     user: state.userReducer,
     isFetchingFlights: state.flightsReducer.isFetching,
     flights: state.flightsReducer.flights,
-    hasBookedFlights: (state.bookingsReducer.flights.length > 0)
+    hasBookedFlights: state.bookingsReducer.flight
 });
 
 const mapDispatchToProps = (dispatch) => ({

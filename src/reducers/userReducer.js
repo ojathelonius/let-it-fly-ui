@@ -1,6 +1,7 @@
 /* Demo purposes : initial destination is set to Paris */
 
 const initialState = {
+    departingAirport: 'SIN',
     initialDestination: 'CDG',
     prettyInitialDestination: 'Paris'
 }
