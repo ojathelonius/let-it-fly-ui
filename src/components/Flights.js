@@ -31,10 +31,24 @@ class Flights extends Component {
             margin: '10px 10px 0px 10px',
             textAlign: 'center'
         }
+
+        const alreadyBooked = {
+            display: 'flex',
+            flex: '1',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#1f4a87',
+            fontSize: '22px',
+            textAlign: 'center'
+
+        }
+
         if (this.props.isFetchingFlights || !this.props.flights) {
             return (<Spin size="large" />);
         }
-
+        if(this.props.hasBookedFlights) {
+            return (<div style={alreadyBooked}>Thank you for booking your flight !</div>)
+        }
         return (
             <div style={flightsStyle}>
                 <div style={largeFont}>Your initial flight was headed to {this.props.user.prettyInitialDestination}. Below are some alternative paths that you can use :</div>
