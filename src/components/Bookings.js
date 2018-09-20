@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import singaporeLogo from '../assets/images/logo-singapore.png';
 import { Card, Spin } from 'antd';
 import { Map, TileLayer, Marker } from 'react-leaflet';
-import BookingCard from './BookingCard';
+import BookedExperienceCard from './BookedExperienceCard';
+import BookedFlightCard from './BookedFlightCard';
 
 
 class Bookings extends Component {
@@ -15,7 +16,6 @@ class Bookings extends Component {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundImage: 'linear-gradient(to top, #fcb130 , #f7f7f7)',
             padding: '20px',
             flex: 1
         }
@@ -26,23 +26,46 @@ class Bookings extends Component {
             textAlign: 'center',
             marginBottom: '20px'
         }
+        const titleStyle = {
+            color: '#1f4a87'
+        }
 
-        console.log(this.props.bookings);
-        const bookingsDisplay = this.props.bookings.length > 0 ? this.props.bookings.map(booking =>
+        const experiencesDisplay = this.props.experiences.length > 0 ? this.props.experiences.map(experience =>
             (
-                <BookingCard booking={booking} key={booking.id}/>
+                <BookedExperienceCard experience={experience} key={experience.id} />
             )
         ) : '';
 
-        return (
-            <div style={bookingsContainer}>
-                <div style={largeFont}>
-                    {this.props.bookings.length === 0 ? "You don't have any bookings."
-                        : 'You can review your bookings below.'
-                    }</div>
-                {bookingsDisplay}
-            </div>
-        );
+        const flightsDisplay = this.props.flights.length > 0 ? this.props.flights.map(flight =>
+            (
+                <BookedFlightCard flight={flight} key={flight.id} />
+            )
+        ) : '';
+
+        const hasBookings = (this.props.experiences.length === 0 && this.props.flights.length === 0);
+
+        if (hasBookings) {
+            return (
+                <div style={bookingsContainer}>
+                    <div style={largeFont}>
+                        You don't have any bookings.
+                    </div>
+                </div>
+            );
+        } else {
+            return (
+                <div style={bookingsContainer}>
+                    <div style={largeFont}>
+                        You can review your bookings below.
+                    </div>
+                    {this.props.experiences.length > 0 ? (<h1 style={titleStyle}>Experiences</h1>) : ''}
+                    {experiencesDisplay}
+                    {this.props.flights.length > 0 ? (<h1 style={titleStyle}>Flights</h1>) : ''}
+                    {flightsDisplay}
+                </div>
+            );
+        }
+
     }
 }
 

@@ -8,7 +8,7 @@ class Flights extends Component {
     componentWillMount() {
         /* SIN by default, as the Singapore Airlines API only provides flights from this airport */
         this.props.updateFlights('SIN', this.props.user.initialDestination);
-        this.props.updateWeather();
+        // this.props.updateWeather();
     }
 
     getAirportWeather(airportCode) {
@@ -34,6 +34,7 @@ class Flights extends Component {
         if (this.props.isFetchingFlights || !this.props.flights) {
             return (<Spin size="large" />);
         }
+
         return (
             <div style={flightsStyle}>
                 <div style={largeFont}>Your initial flight was headed to {this.props.user.prettyInitialDestination}. Below are some alternative paths that you can use :</div>

@@ -4,7 +4,7 @@ import { Card, Icon, Button } from 'antd';
 import { Map, TileLayer, Marker } from 'react-leaflet'
 
 
-class BookingCard extends Component {
+class BookedExperienceCard extends Component {
 
     componentWillMount() {
     }
@@ -46,8 +46,8 @@ class BookingCard extends Component {
         }
 
         const experiencePosition = {
-            lat: this.props.booking.position.lat,
-            lng: this.props.booking.position.lon
+            lat: this.props.experience.position.lat,
+            lng: this.props.experience.position.lon
         };
 
         const mainBody = {
@@ -110,20 +110,20 @@ class BookingCard extends Component {
                     </Marker>
                 </Map>
                 <div style={roundImgContainer}>
-                    <img src={this.props.booking.image} alt={this.props.booking.title} style={imgStyle} />
+                    <img src={this.props.experience.image} alt={this.props.experience.title} style={imgStyle} />
                 </div>
                 <div style={btnContainer}>
                     <Button type="primary" style={btnStyle}><i className="fas fa-times" style={iconStyle}></i><span className='mobile-hidden'>Cancel</span></Button>
                     <Button type="primary" style={btnStyle}><i className="fas fa-pen" style={iconStyle}></i><span className='mobile-hidden'>Modify</span></Button>
                 </div>
                 <div style={mainBody}>
-                    <div style={{ alignSelf: 'center', marginBottom: '10px' }}>{this.props.booking.description}</div>
+                    <div style={{ alignSelf: 'center', marginBottom: '10px' }}>{this.props.experience.description}</div>
                     <h2>Informations</h2>
                     <div>
-                        <i class="fas fa-exclamation" style={iconStyle}></i>{this.props.booking.requirements ? this.props.booking.requirements : 'None'}
+                        <i class="fas fa-exclamation" style={iconStyle}></i>{this.props.experience.requirements ? this.props.experience.requirements : 'None'}
                     </div>
                     <div>
-                        <i class="far fa-clock" style={iconStyle}></i>{this.props.booking.startingAt + ' - ' + this.props.booking.endingAt}
+                        <i class="far fa-clock" style={iconStyle}></i>{this.props.experience.startingAt + ' - ' + this.props.experience.endingAt}
                     </div>
 
                 </div>
@@ -134,4 +134,4 @@ class BookingCard extends Component {
     }
 }
 
-export default BookingCard;
+export default BookedExperienceCard;

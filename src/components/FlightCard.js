@@ -28,8 +28,8 @@ class FlightCard extends Component {
             flexWrap: 'wrap'
         }
 
-        const currentWeather = this.props.isFetchingWeather ? 'Fetching data...' :
-            (<p>It's currently {this.props.weather.temperature} degrees in {this.props.weather.city}, although it feels more like {this.props.weather.feelsLikeTemperature}.</p>)
+        // const currentWeather = this.props.isFetchingWeather ? 'Fetching data...' :
+        //     (<p>It's currently {this.props.weather.temperature} degrees in {this.props.weather.city}, although it feels more like {this.props.weather.feelsLikeTemperature}.</p>)
 
         const itinerary = [].concat(...this.props.flight.itinerary.map(e => ['arrow', e])).slice(1);
 
@@ -59,7 +59,7 @@ class FlightCard extends Component {
             textAlign: 'center'
         }
 
-        const bookBtnStyle = {
+        const infoBtnStyle = {
             position: 'absolute',
             bottom: '5px',
             right: '5px',
@@ -67,19 +67,34 @@ class FlightCard extends Component {
             color: '#00266b',
             border: '1px solid #fcb130',
         }
+
+        const bookBtnStyle = {
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            height: '40px',
+            justifyContent: 'center',
+            backgroundColor: '#fcb130',
+            padding: '10px',
+            borderRadius: '3px',
+            marginTop: '10px',
+            width: '200px',
+            cursor: 'pointer',
+        }
+
         return (
             <div style={mainContainer}>
                 {(itinerary.length) > 1 ? (
-                    <span style={titleStyle}>Stay in <span style={{fontWeight: 'bold'}}>{itinerary[0].toCity}</span> and reach your destination in <span style={{fontWeight: 'bold'}}>{this.props.flight.timeInBetween}</span>.</span>
+                    <span style={titleStyle}>Stay in <span style={{ fontWeight: 'bold' }}>{itinerary[0].toCity}</span> and reach your destination in <span style={{ fontWeight: 'bold' }}>{this.props.flight.timeInBetween}</span>.</span>
                 ) : (
-                        <span style={titleStyle}>Take a straight flight to {itinerary[0].toCity} and you'll be there in <span style={{fontWeight: 'bold'}}>{itinerary[0].duration}</span> !</span>
+                        <span style={titleStyle}>Take a straight flight to {itinerary[0].toCity} and you'll be there in <span style={{ fontWeight: 'bold' }}>{itinerary[0].duration}</span> !</span>
                     )}
 
                 <div style={rowItinerary}>
                     {itinerary.map((curFlight, index, arr) => {
 
                         if (curFlight == 'arrow') {
-                            return (<i className="fas fa-arrow-right mobile-hidden" style={{ color: 'white' }}></i>);
+                            return (<i className="fas fa-arrow-right mobile-hidden" style={{ color: 'white' }} key={curFlight.id}></i>);
                         }
                         return (
 
@@ -89,27 +104,29 @@ class FlightCard extends Component {
                                 headStyle={headStyle}
                                 bodyStyle={bodyStyle}
                                 hoverable={true}
+                                key={curFlight.id}
                             >
 
 
                                 <div style={iconContainer}>
-                                    <i class="far fa-calendar" style={iconStyle}></i>{curFlight.departureDate}
+                                    <i className="far fa-calendar" style={iconStyle}></i>{curFlight.departureDate}
                                 </div>
                                 <div style={iconContainer}>
-                                    <i class="far fa-clock" style={iconStyle}></i>{curFlight.departureTime} ({curFlight.duration})
-                            </div>
+                                    <i className="far fa-clock" style={iconStyle}></i>{curFlight.departureTime} ({curFlight.duration})
+                                </div>
                                 <div style={iconContainer}>
-                                    <i class="fas fa-plane" style={iconStyle}></i>{curFlight.airline}
+                                    <i className="fas fa-plane" style={iconStyle}></i>{curFlight.airline}
                                 </div>
 
-                                <Button type="primary" style = {bookBtnStyle}>
-                                <Icon type="check" />Book
+                                <Button type="primary" style={infoBtnStyle} >
+                                    <Icon type="info-circle" />More info
                                 </Button>
                             </Card>
 
                         )
                     })}
                 </div>
+                <div style={bookBtnStyle}  onClick={() => this.props.bookFlight(this.props.flight)}><i class="fas fa-plane-departure" style={iconStyle}></i>Book !</div>
             </div>
         );
 

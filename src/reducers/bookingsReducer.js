@@ -1,13 +1,20 @@
 const initialState = {
-    bookings: []
+    experiences: [],
+    flights: []
 }
 
 const bookingsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_BOOKING':
+        case 'ADD_BOOKING_EXPERIENCE':
             return {
                 ...state,
-                bookings: [...state.bookings,
+                experiences: [...state.experiences,
+                action.payload]
+            }
+        case 'ADD_BOOKING_FLIGHT':
+            return {
+                ...state,
+                flights: [...state.flights,
                 action.payload]
             }
         default:

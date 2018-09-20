@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import Bookings from '../components/Bookings'
 
-const mapStateToProps = (state, ownProps) => ({ bookings : state.bookingsReducer.bookings });
+const mapStateToProps = (state, ownProps) => ({ experiences : state.bookingsReducer.experiences, flights: state.bookingsReducer.flights });
 
 const mapDispatchToProps = (dispatch) => ({
 });
