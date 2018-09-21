@@ -23,7 +23,6 @@ class FlightCard extends Component {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            boxShadow: 'inset 0 0 4px #000000',
             width: '95%',
             flexWrap: 'wrap'
         }
