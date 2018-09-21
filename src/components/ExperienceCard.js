@@ -30,6 +30,10 @@ class ExperienceCard extends Component {
             maxWidth: '150px'
         }
 
+        const imgStyle = {
+            maxWidth: '100%'
+        }
+
         let partnerLogo;
 
         if (this.props.experience.source === 'airbnb') {
@@ -48,7 +52,7 @@ class ExperienceCard extends Component {
                 hoverable={true}
                 onClick={() => this.props.openExperienceModal(this.props.experience)}
             >
-                <img src={this.props.experience.image} alt={this.props.experience.title} />
+                <img src={this.props.experience.image} alt={this.props.experience.title} style={imgStyle} />
                 {partnerLogo}
             </Card>
 
