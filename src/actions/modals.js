@@ -11,10 +11,19 @@ export const closeExperienceModal = () => ({
 export const openBookingCancelModal = (selectedBooking) => ({
     type: 'OPEN_BOOKING_CANCEL_MODAL',
     payload: selectedBooking
-
 })
 
 export const closeBookingCancelModal = () => ({
     type: 'CLOSE_BOOKING_CANCEL_MODAL'
+})
+
+export const openFlightModal = (selectedFlight) => ({
+    type: 'OPEN_FLIGHT_MODAL',
+    payload: selectedFlight
+
+})
+
+export const closeFlightModal = () => ({
+    type: 'CLOSE_FLIGHT_MODAL'
 })
 

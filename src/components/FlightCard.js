@@ -23,7 +23,6 @@ class FlightCard extends Component {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            boxShadow: 'inset 0 0 4px #000000',
             width: '95%',
             flexWrap: 'wrap'
         }
@@ -125,7 +124,7 @@ class FlightCard extends Component {
                         )
                     })}
                 </div>
-                <div style={bookBtnStyle}  onClick={() => this.props.bookFlight(this.props.flight)}><i className="fas fa-plane-departure" style={iconStyle}></i>Book !</div>
+                <div style={bookBtnStyle}  onClick={() => this.props.openFlightModal(this.props.flight)}><i className="fas fa-plane-departure" style={iconStyle}></i>Book this flight</div>
             </div>
         );
 

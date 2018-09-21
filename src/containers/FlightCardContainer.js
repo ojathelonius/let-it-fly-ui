@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
 import FlightCard from '../components/FlightCard'
-import { bookFlight } from '../actions/bookings'
+import { openFlightModal } from '../actions/modals'
 
 const mapStateToProps = (state, ownProps) => ({ isFetchingWeather: state.weatherReducer.isFetching, flight: ownProps.flight });
 
 const mapDispatchToProps = (dispatch) => ({
-    bookFlight: (selectedFlight) => dispatch(bookFlight(selectedFlight))
+    openFlightModal: (selectedFlight) => dispatch(openFlightModal(selectedFlight))
 });
 
 const FlightCardContainer = connect(
