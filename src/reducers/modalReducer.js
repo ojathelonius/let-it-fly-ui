@@ -1,7 +1,8 @@
 const initialState = {
     experienceModal: false,
-    experienceModalId : null,
-    selectedExperience: {}
+    selectedExperience: {},
+    flightModal: false,
+    selectedFlight: {}
 }
 
 const modalReducer = (state = initialState, action) => {
@@ -16,6 +17,17 @@ const modalReducer = (state = initialState, action) => {
             return {
                 ...state,
                 experienceModal: false
+            }
+        case 'OPEN_FLIGHT_MODAL':
+            return {
+                ...state,
+                flightModal: true,
+                selectedFlight : action.payload
+            }
+        case 'CLOSE_FLIGHT_MODAL':
+            return {
+                ...state,
+                flightModal: false
             }
         default:
             return state

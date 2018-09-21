@@ -1,4 +1,4 @@
-import { closeExperienceModal } from './modals';
+import { closeExperienceModal, closeFlightModal } from './modals';
 import { openNotification } from './notifications';
 
 export const bookExperience = (experience) => (dispatch) => {
@@ -14,6 +14,8 @@ export const bookExperience = (experience) => (dispatch) => {
 }
 
 export const bookFlight = (flight) => (dispatch) => {
+
+    dispatch(closeFlightModal());
 
     dispatch({
         type: 'ADD_BOOKING_FLIGHT',

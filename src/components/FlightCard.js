@@ -124,7 +124,7 @@ class FlightCard extends Component {
                         )
                     })}
                 </div>
-                <div style={bookBtnStyle}  onClick={() => this.props.bookFlight(this.props.flight)}><i className="fas fa-plane-departure" style={iconStyle}></i>Book !</div>
+                <div style={bookBtnStyle}  onClick={() => this.props.openFlightModal(this.props.flight)}><i className="fas fa-plane-departure" style={iconStyle}></i>Book this flight</div>
             </div>
         );
 
