@@ -56,7 +56,7 @@ class Bookings extends Component {
                     </div>
                     {this.props.experiences.length > 0 ? (<h1 style={titleStyle}>Experiences</h1>) : ''}
                     {experiencesDisplay}
-                    {this.props.flight ? (<h1 style={titleStyle}>Flight</h1>) : ''}
+                    {this.props.flight ? (<h1 style={titleStyle}>Flights</h1>) : ''}
                     {flightDisplay}
                 </div>
             );
