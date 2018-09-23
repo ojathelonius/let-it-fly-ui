@@ -6,7 +6,7 @@ export const fetchHotels = (airportCode) => (async (dispatch) => {
     try {
         const response = await axios({
             method: 'get',
-            url: `${config.apiUrl}/hotels?${airportCode}`,
+            url: `${config.apiUrl}/hotels/${airportCode}`,
         });
         dispatch(receiveHotels(response.data));
     } catch(e) {

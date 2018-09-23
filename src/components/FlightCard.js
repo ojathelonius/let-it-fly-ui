@@ -73,7 +73,7 @@ class FlightCard extends Component {
             alignItems: 'center',
             height: '40px',
             justifyContent: 'center',
-            backgroundColor: '#fcb130',
+            backgroundColor: 'white',
             padding: '10px',
             borderRadius: '3px',
             marginTop: '10px',
