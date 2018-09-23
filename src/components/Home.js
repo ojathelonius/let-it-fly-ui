@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import RowTileContainer from './RowTileContainer';
 import flightImg from '../assets/images/flight-img.jpg';
 import entertainmentImg from '../assets/images/entertainment-img.jpg';
+import hotelImg from '../assets/images/hotel-img.jpg';
 
 class Home extends Component {
     render() {
@@ -66,6 +67,17 @@ class Home extends Component {
                             hoverable={true}
                         >
                             <img src={entertainmentImg} alt="Extend your stay" style={{maxWidth: '100%'}}/>
+                        </Card>
+                    </Link>
+                    <Link to="/hotels">
+                        <Card
+                            title="Find accommodation"
+                            style={tileStyle}
+                            headStyle={headStyle}
+                            bodyStyle={bodyStyle}
+                            hoverable={true}
+                        >
+                            <img src={hotelImg} alt="Find accommodation" style={{maxWidth: '100%'}}/>
                         </Card>
                     </Link>
                 </RowTileContainer>
