@@ -100,6 +100,11 @@ class HotelCard extends Component {
             lng: this.props.hotel.position.lon
         };
 
+        const iconContainer = {
+            display: 'flex',
+            alignItems: 'center'
+        }
+
         return (
             <div style={bookingRow}>
                 <Map center={hotelPosition} zoom={13} style={mapStyle} zoomControl={false} attributionControl={false} dragging={false} scrollWheelZoom={false}>
@@ -123,6 +128,22 @@ class HotelCard extends Component {
                 <div style={mainBody}>
                     <div style={{ alignSelf: 'center', marginBottom: '10px' }}>{this.props.hotel.description}</div>
                     <h2>Informations</h2>
+                    {this.props.hotel.breakfast ? (
+                        <div style={iconContainer}>
+                            <i className="fas fa-coffee" style={iconStyle}></i>Breakfast included
+                        </div>) : ''}
+                    {this.props.hotel.pool ? (
+                        <div style={iconContainer}>
+                            <i className="fas fa-swimming-pool" style={iconStyle}></i>Pool
+                        </div>) : ''}
+                    {this.props.hotel.ac ? (
+                        <div style={iconContainer}>
+                            <i className="fas fa-snowflake" style={iconStyle}></i>Air conditioned
+                        </div>) : ''}
+                    {this.props.hotel.parking ? (
+                        <div style={iconContainer}>
+                            <i className="fas fa-parking" style={iconStyle}></i>Parking
+                        </div>) : ''}
                 </div>
             </div >
         );
