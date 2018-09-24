@@ -73,7 +73,7 @@ class FlightCard extends Component {
             alignItems: 'center',
             height: '40px',
             justifyContent: 'center',
-            backgroundColor: '#fcb130',
+            backgroundColor: 'white',
             padding: '10px',
             borderRadius: '3px',
             marginTop: '10px',
@@ -86,7 +86,7 @@ class FlightCard extends Component {
                 {(itinerary.length) > 1 ? (
                     <span style={titleStyle}>Stay in <span style={{ fontWeight: 'bold' }}>{itinerary[0].toCity}</span> and reach your destination in <span style={{ fontWeight: 'bold' }}>{this.props.flight.timeInBetween}</span>.</span>
                 ) : (
-                        <span style={titleStyle}>Take a straight flight to {itinerary[0].toCity} and you'll be there in <span style={{ fontWeight: 'bold' }}>{itinerary[0].duration}</span> !</span>
+                        <span style={titleStyle}>Take a direct flight to {itinerary[0].toCity} and you'll be there in <span style={{ fontWeight: 'bold' }}>{itinerary[0].duration}</span> !</span>
                     )}
 
                 <div style={rowItinerary}>

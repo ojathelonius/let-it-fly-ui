@@ -27,3 +27,13 @@ export const closeFlightModal = () => ({
     type: 'CLOSE_FLIGHT_MODAL'
 })
 
+export const openHotelModal = (selectedHotel) => ({
+    type: 'OPEN_HOTEL_MODAL',
+    payload: selectedHotel
+
+})
+
+export const closeHotelModal = () => ({
+    type: 'CLOSE_HOTEL_MODAL'
+})
+

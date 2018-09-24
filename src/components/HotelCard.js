@@ -3,13 +3,14 @@ import { Card, Icon, Button } from 'antd';
 import { Map, TileLayer, Marker } from 'react-leaflet'
 
 
-class BookedExperienceCard extends Component {
+
+class HotelCard extends Component {
 
     componentWillMount() {
     }
 
-    render() {
 
+    render() {
 
         const bookingRow = {
             display: 'flex',
@@ -19,7 +20,7 @@ class BookedExperienceCard extends Component {
             borderRadius: '5px',
             border: '1px solid #1f4a87',
             position: 'relative',
-            marginBottom: '20px'
+            marginBottom: '30px'
         }
 
         const tileStyle = {
@@ -43,11 +44,6 @@ class BookedExperienceCard extends Component {
             height: '150px',
             borderBottom: '1px solid #1f4a87'
         }
-
-        const experiencePosition = {
-            lat: this.props.experience.position.lat,
-            lng: this.props.experience.position.lon
-        };
 
         const mainBody = {
             padding: '20px',
@@ -81,7 +77,8 @@ class BookedExperienceCard extends Component {
         }
 
         const btnContainer = {
-            display: 'flex'
+            display: 'flex',
+            backgroundColor: '#1f4a87'
         };
 
         const btnStyle = {
@@ -98,39 +95,59 @@ class BookedExperienceCard extends Component {
             textAlign: 'center'
         }
 
+        const hotelPosition = {
+            lat: this.props.hotel.position.lat,
+            lng: this.props.hotel.position.lon
+        };
+
+        const iconContainer = {
+            display: 'flex',
+            alignItems: 'center'
+        }
+
         return (
             <div style={bookingRow}>
-                <Map center={experiencePosition} zoom={13} style={mapStyle} zoomControl={false} attributionControl={false} dragging={false} scrollWheelZoom={false}>
+                <Map center={hotelPosition} zoom={13} style={mapStyle} zoomControl={false} attributionControl={false} dragging={false} scrollWheelZoom={false}>
                     <TileLayer
                         attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={experiencePosition}>
+                    <Marker position={hotelPosition}>
                     </Marker>
                 </Map>
                 <div style={roundImgContainer}>
-                    <img src={this.props.experience.image} alt={this.props.experience.title} style={imgStyle} />
+                    <img src={this.props.hotel.image} alt={this.props.hotel.title} style={imgStyle} />
                 </div>
                 <div style={btnContainer}>
-                    <Button type="primary" style={btnStyle}><i className="fas fa-times" style={iconStyle}></i><span className='mobile-hidden'>Cancel</span></Button>
-                    <Button type="primary" style={btnStyle}><i className="fas fa-pen" style={iconStyle}></i><span className='mobile-hidden'>Modify</span></Button>
+                    <div style={{ flex: '1' }}></div>
+                    {this.props.booked ? (<Button type="primary" style={btnStyle}><i className="fas fa-times" style={iconStyle} ></i><span className='mobile-hidden'>Cancel</span></Button>) : (
+                        <Button type="primary" style={btnStyle} onClick={() => this.props.openHotelModal(this.props.hotel)}><i className="fas fa-check" style={iconStyle} ></i><span className='mobile-hidden'>Book</span></Button>
+                    )}
+
                 </div>
                 <div style={mainBody}>
-                    <div style={{ alignSelf: 'center', marginBottom: '10px' }}>{this.props.experience.description}</div>
+                    <div style={{ alignSelf: 'center', marginBottom: '10px' }}>{this.props.hotel.description}</div>
                     <h2>Informations</h2>
-                    <div>
-                        <i className="fas fa-exclamation" style={iconStyle}></i>{this.props.experience.requirements ? this.props.experience.requirements : 'None'}
-                    </div>
-                    <div>
-                        <i className="far fa-clock" style={iconStyle}></i>{this.props.experience.startingAt + ' - ' + this.props.experience.endingAt}
-                    </div>
-
+                    {this.props.hotel.breakfast ? (
+                        <div style={iconContainer}>
+                            <i className="fas fa-coffee" style={iconStyle}></i>Breakfast included
+                        </div>) : ''}
+                    {this.props.hotel.pool ? (
+                        <div style={iconContainer}>
+                            <i className="fas fa-swimming-pool" style={iconStyle}></i>Pool
+                        </div>) : ''}
+                    {this.props.hotel.ac ? (
+                        <div style={iconContainer}>
+                            <i className="fas fa-snowflake" style={iconStyle}></i>Air conditioned
+                        </div>) : ''}
+                    {this.props.hotel.parking ? (
+                        <div style={iconContainer}>
+                            <i className="fas fa-parking" style={iconStyle}></i>Parking
+                        </div>) : ''}
                 </div>
-
-
             </div >
         );
     }
 }
 
-export default BookedExperienceCard;
+export default HotelCard;

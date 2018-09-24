@@ -1,4 +1,4 @@
-import { closeExperienceModal, closeFlightModal } from './modals';
+import { closeExperienceModal, closeFlightModal, closeHotelModal } from './modals';
 import { openNotification } from './notifications';
 
 export const bookExperience = (experience) => (dispatch) => {
@@ -24,3 +24,16 @@ export const bookFlight = (flight) => (dispatch) => {
 
     openNotification('Booking confirmed !', 'Your flight has been booked. You can now check it in My Bookings.');
 }
+
+export const bookHotel = (hotel) => (dispatch) => {
+
+    dispatch(closeHotelModal());
+
+    dispatch({
+        type: 'ADD_BOOKING_HOTEL',
+        payload: hotel
+    });
+
+    openNotification('Booking confirmed !', 'Your hotel has been booked. You can now check it in My Bookings.');
+}
+
