@@ -46,7 +46,7 @@ class Bookings extends Component {
             )
         ) : '';
 
-        const hasBookings = (this.props.experiences.length > 0 || this.props.flight || this.props.hotels);
+        const hasBookings = (this.props.experiences.length > 0 || this.props.flight || this.props.hotels.length > 0 );
 
         if (!hasBookings) {
             return (

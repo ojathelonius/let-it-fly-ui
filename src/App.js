@@ -12,6 +12,7 @@ import FlightsContainer from './containers/FlightsContainer';
 import ExperiencesContainer from './containers/ExperiencesContainer';
 import BookingsContainer from './containers/BookingsContainer';
 import HotelsContainer from './containers/HotelsContainer';
+import ProfileContainer from './containers/ProfileContainer';
 
 import './App.css';
 
@@ -39,6 +40,7 @@ class App extends Component {
               <Route exact path="/experiences" component={ExperiencesContainer} />
               <Route exact path="/bookings" component={BookingsContainer} />
               <Route exact path="/hotels" component={HotelsContainer} />
+              <Route exact path="/profile" component={ProfileContainer} />
               <Footer />
             </div>
           </Switch>
