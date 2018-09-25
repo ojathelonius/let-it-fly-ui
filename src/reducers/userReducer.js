@@ -6,7 +6,8 @@ const initialState = {
     initialDestination: 'SFO',
     prettyInitialDestination: 'San Francisco',
     profile: null,
-    isFetching: false
+    isFetching: false,
+    listAllProfiles : null
 }
 
 const userReducer = (state = initialState, action) => {
@@ -20,7 +21,9 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                profile: action.payload
+                profile: action.payload.profile,
+                listAllProfiles: action.payload.allProfiles,
+                defaultDemoProfile: action.payload.profileId
             }
         default:
             return state

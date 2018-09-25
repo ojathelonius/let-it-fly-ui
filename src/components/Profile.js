@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Spin, List } from 'antd';
+import { Spin, List, Menu, Dropdown, Icon } from 'antd';
 
 class Profile extends Component {
 
@@ -7,7 +7,33 @@ class Profile extends Component {
         this.props.updateProfile(this.props.defaultDemoProfile);
     }
 
+    onClickDropDown = ({ key }) => {
+        this.props.updateProfile(key);
+    };
+
+    createDropDown = () => {
+        console.log(this.props.defaultDemoProfile)
+        if (this.props.listAllProfiles != null){
+            const table = this.props.listAllProfiles.map((profile) => {
+                if (profile[0].id == this.props.defaultDemoProfile){
+                    return (<Menu.Item disabled key={profile[0].id}>{profile[0].firstName + " " + profile[0].lastName}</Menu.Item>)
+                }
+                else{
+                    return (<Menu.Item key={profile[0].id}><a href="#">{profile[0].firstName + " " + profile[0].lastName}</a></Menu.Item>)
+                }     
+            })
+            return table
+        }
+        return []
+    }
+
     render() {
+
+        const menu = (
+            <Menu onClick={this.onClickDropDown}>
+              {this.createDropDown()}
+            </Menu>
+          );
 
         const mainContainer = {
             display: 'flex',
@@ -87,6 +113,11 @@ class Profile extends Component {
 
         return (
             <div style={mainContainer}>
+                <Dropdown overlay={menu}>
+                    <a className="ant-dropdown-link" href="#">
+                        Change profile <Icon type="down" />
+                    </a>
+                </Dropdown>
                 <div style={mainTitle}>Here's what we know about your situation.</div>
                 <div style={generalInfo}>
                     Your initial flight is headed to <strong>{this.props.profile.goingTo}</strong> ({this.props.profile.goingToAirport}).
