@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Spin, List } from 'antd';
+import { Spin, List, Menu, Dropdown, Icon } from 'antd';
 
 class Profile extends Component {
 
@@ -7,7 +7,33 @@ class Profile extends Component {
         this.props.updateProfile(this.props.defaultDemoProfile);
     }
 
+    onClickDropDown = ({ key }) => {
+        this.props.updateProfile(key);
+    };
+
+    createDropDown = () => {
+        console.log(this.props.defaultDemoProfile)
+        if (this.props.listAllProfiles != null){
+            const table = this.props.listAllProfiles.map((profile) => {
+                if (profile[0].id == this.props.defaultDemoProfile){
+                    return (<Menu.Item disabled key={profile[0].id}>{profile[0].firstName + " " + profile[0].lastName}</Menu.Item>)
+                }
+                else{
+                    return (<Menu.Item key={profile[0].id}><a href="#">{profile[0].firstName + " " + profile[0].lastName}</a></Menu.Item>)
+                }     
+            })
+            return table
+        }
+        return []
+    }
+
     render() {
+
+        const menu = (
+            <Menu onClick={this.onClickDropDown}>
+              {this.createDropDown()}
+            </Menu>
+          );
 
         const mainContainer = {
             display: 'flex',
@@ -54,6 +80,10 @@ class Profile extends Component {
             textAlign: 'center'
         }
 
+        const userForm = {
+
+        }
+
         const listStyle = {
             width: '100%',
             maxWidth: '400px'
@@ -83,33 +113,44 @@ class Profile extends Component {
 
         return (
             <div style={mainContainer}>
+                <Dropdown overlay={menu}>
+                    <a className="ant-dropdown-link" href="#">
+                        Change profile <Icon type="down" />
+                    </a>
+                </Dropdown>
                 <div style={mainTitle}>Here's what we know about your situation.</div>
                 <div style={generalInfo}>
                     Your initial flight is headed to <strong>{this.props.profile.goingTo}</strong> ({this.props.profile.goingToAirport}).
                 </div>
                 <div style={generalInfo}>
-                    {this.props.profile.adjacentBookings.length === 0 ? (
-                        <span>You're travelling with {this.props.profile.adjacentBookings} other people.</span>
+                    {this.props.profile.adjacentBookings != 0 ? (
+                        <span>You're traveling with {this.props.profile.adjacentBookings} other people.</span>
                     ) : (
-                            <span>You're travelling by yourself.</span>
+                            <span>You're traveling by yourself.</span>
                         )}
                 </div>
                 <hr style={hrStyle} />
-                <div style={profileElement}>
-                    <i className="fas fa-user" style={iconStyle}></i>
-                    <span style={textStyle}>{this.props.profile.firstName} {this.props.profile.lastName}</span>
-                </div>
-                <div style={profileElement}>
-                    <i className="far fa-envelope" style={iconStyle}></i>
-                    <span style={textStyle}>{this.props.profile.email}</span>
-                </div>
-                <div style={profileElement}>
-                    <i className="fas fa-birthday-cake" style={iconStyle}></i>
-                    <span style={textStyle}>{this.props.profile.dateOfBirth}</span>
-                </div>
-                <div style={profileElement}>
-                    <i className="fas fa-home" style={iconStyle}></i>
-                    <span style={textStyle}>{this.props.profile.address[0].line1}</span>
+                <div style={userForm}>
+                    <div style={profileElement}>
+                        <i className="fas fa-user" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.firstName} {this.props.profile.lastName}</span>
+                    </div>
+                    <div style={profileElement}>
+                        <i className="far fa-envelope" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.email}</span>
+                    </div>
+                    <div style={profileElement}>
+                        <i className="fas fa-birthday-cake" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.dateOfBirth}</span>
+                    </div>
+                    <div style={profileElement}>
+                        <i className="fas fa-home" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.address[0].line1}</span>
+                    </div>
+                    <div style={profileElement}>
+                        <i className={this.props.profile.businessTrip ? "fas fa-briefcase" : "fas fa-user-friends"} style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.businessTrip ? "Traveling for work" : "Traveling with family"}</span>
+                    </div>
                 </div>
                 <hr style={hrStyle} />
                 <div style={{ marginBottom: '10px' }}>KrisShop orders : </div>
