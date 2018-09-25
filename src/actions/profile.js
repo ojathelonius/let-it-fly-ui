@@ -15,7 +15,7 @@ export const fetchProfile = (id) => (async (dispatch) => {
 });
 
 export const requestProfile = () => ({
-    type: 'RECEIVE_PROFILE'
+    type: 'REQUEST_PROFILE'
 })
 
 export const receiveProfile = (json) => {

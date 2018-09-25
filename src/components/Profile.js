@@ -54,6 +54,10 @@ class Profile extends Component {
             textAlign: 'center'
         }
 
+        const userForm = {
+            
+        }
+
         const listStyle = {
             width: '100%',
             maxWidth: '400px'
@@ -95,21 +99,27 @@ class Profile extends Component {
                         )}
                 </div>
                 <hr style={hrStyle} />
-                <div style={profileElement}>
-                    <i className="fas fa-user" style={iconStyle}></i>
-                    <span style={textStyle}>{this.props.profile.firstName} {this.props.profile.lastName}</span>
-                </div>
-                <div style={profileElement}>
-                    <i className="far fa-envelope" style={iconStyle}></i>
-                    <span style={textStyle}>{this.props.profile.email}</span>
-                </div>
-                <div style={profileElement}>
-                    <i className="fas fa-birthday-cake" style={iconStyle}></i>
-                    <span style={textStyle}>{this.props.profile.dateOfBirth}</span>
-                </div>
-                <div style={profileElement}>
-                    <i className="fas fa-home" style={iconStyle}></i>
-                    <span style={textStyle}>{this.props.profile.address[0].line1}</span>
+                <div style={userForm}>
+                    <div style={profileElement}>
+                        <i className="fas fa-user" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.firstName} {this.props.profile.lastName}</span>
+                    </div>
+                    <div style={profileElement}>
+                        <i className="far fa-envelope" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.email}</span>
+                    </div>
+                    <div style={profileElement}>
+                        <i className="fas fa-birthday-cake" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.dateOfBirth}</span>
+                    </div>
+                    <div style={profileElement}>
+                        <i className="fas fa-home" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.address[0].line1}</span>
+                    </div>
+                    <div style={profileElement}>
+                        <i className="fas fa-briefcase" style={iconStyle}></i>
+                        <span style={textStyle}>{this.props.profile.businessTrip ? "Traveling for work" : "Traveling with family"}</span>
+                    </div>
                 </div>
                 <hr style={hrStyle} />
                 <div style={{ marginBottom: '10px' }}>KrisShop orders : </div>
