@@ -9,6 +9,7 @@ class Experiences extends Component {
     componentWillMount() {
         /* Singapor airport for demo purposes */
         this.props.updateExperiences('SIN');
+        this.props.updateProfile(this.props.defaultDemoProfile);
     }
 
     render() {
@@ -32,11 +33,15 @@ class Experiences extends Component {
             textAlign: 'center'
         }
 
-        const experienceList = this.props.experiences;
+        const filteredExperienceList = (this.props.userProfile && this.props.userProfile.businessTrip) ? this.props.experiences.filter(exp => 
+            (exp.tag === 'luxury')
+        ) : this.props.experiences.filter(exp => 
+            (exp.tag !== 'luxury')
+        );
 
-        const experienceDisplay = experienceList.length === 0 ?
+        const experienceDisplay = (!this.props.userProfile) ?
             (<Spin size="large" />)
-            : experienceList.map(experience => <ExperienceCardContainer experience={experience} key={experience.id} />)
+            : filteredExperienceList.map(experience => <ExperienceCardContainer experience={experience} key={experience.id} />)
 
         const mapStyle = {
             height: '300px',
