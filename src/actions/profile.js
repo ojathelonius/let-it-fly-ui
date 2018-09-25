@@ -1,5 +1,6 @@
 import axios from 'axios';
 import config from '../config';
+import { resetBookings } from './bookings';
 
 export const fetchProfile = (id) => (async (dispatch) => {
     dispatch(requestProfile());
@@ -31,3 +32,8 @@ export const receiveProfile = (json) => {
     })
 }
 
+export const changeProfile = (id) => (async (dispatch) => {
+    dispatch(resetBookings());
+
+    dispatch(fetchProfile(id));
+});

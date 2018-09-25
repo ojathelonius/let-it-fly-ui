@@ -23,6 +23,13 @@ const bookingsReducer = (state = initialState, action) => {
                 hotels: [...state.hotels,
                 action.payload]
             }
+        case 'RESET_BOOKINGS':
+            return {
+                ...state,
+                hotels: [],
+                flight: null,
+                experiences: []
+            }
         default:
             return state
     }

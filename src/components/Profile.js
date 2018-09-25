@@ -8,11 +8,10 @@ class Profile extends Component {
     }
 
     onClickDropDown = ({ key }) => {
-        this.props.updateProfile(key);
+        this.props.changeProfile(key);
     };
 
     createDropDown = () => {
-        console.log(this.props.demoProfile)
         if (this.props.listAllProfiles != null){
             const table = this.props.listAllProfiles.map((profile) => {
                 if (profile[0].id == this.props.demoProfile){
