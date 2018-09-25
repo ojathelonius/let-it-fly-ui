@@ -37,3 +37,7 @@ export const bookHotel = (hotel) => (dispatch) => {
     openNotification('Booking confirmed !', 'Your hotel has been booked. You can now check it in My Bookings.');
 }
 
+export const resetBookings = () => ({
+    type: 'RESET_BOOKINGS'
+})
+

@@ -9,6 +9,7 @@ class Experiences extends Component {
     componentWillMount() {
         /* Singapor airport for demo purposes */
         this.props.updateExperiences('SIN');
+        this.props.updateProfile(this.props.demoProfile);
     }
 
     render() {
@@ -32,11 +33,13 @@ class Experiences extends Component {
             textAlign: 'center'
         }
 
-        const experienceList = this.props.experiences;
+        const filteredExperienceList = (this.props.userProfile && this.props.userProfile.businessTrip) ? this.props.experiences.filter(exp =>
+            (exp.tag === 'luxury')
+        ) : this.props.experiences.filter(exp =>
+            (exp.tag !== 'luxury')
+        );
 
-        const experienceDisplay = experienceList.length === 0 ?
-            (<Spin size="large" />)
-            : experienceList.map(experience => <ExperienceCardContainer experience={experience} key={experience.id} />)
+        const experienceDisplay =  filteredExperienceList.map(experience => <ExperienceCardContainer experience={experience} key={experience.id} />)
 
         const mapStyle = {
             height: '300px',
@@ -58,13 +61,30 @@ class Experiences extends Component {
             justifyContent: 'center',
             marginTop: '20px'
         }
+
         return (
             <div style={experiencesStyle}>
-                <div style={largeFont}>We have several entertaining activities for you and your peers !</div>
-                <div style={mediumFont}>Everything will be arranged until you can get on the next flight towards your destination, from housing to transportation and any accomodation necessary.</div>
-                <RowTileContainer>
-                    {experienceDisplay}
-                </RowTileContainer>
+                <div style={largeFont}>
+
+                    {(this.props.userProfile && !this.props.isFetchingProfile) ? (
+                        this.props.userProfile.businessTrip ?
+                            (<span>As you're travelling for business purposes, here are some entertaining activities to relax between work sessions.</span>)
+                            : (<span>Below are some entertaining activities for you to enjoy while waiting for your next flight.</span>)
+                    ) :
+                        (
+                            <div>Finding experiences based on your information...</div>
+                        )
+                    }
+
+                </div>
+
+                    {
+                        (!this.props.userProfile || this.props.isFetchingProfile) ? 
+                        (<Spin size="large" style={{marginTop: '30px'}}/>)
+                        : (<RowTileContainer>
+                            {experienceDisplay}
+                        </RowTileContainer>)
+                    }
 
                 <Modal
                     title={this.props.selectedExperience.title}
