@@ -55,7 +55,7 @@ class Profile extends Component {
         }
 
         const userForm = {
-            
+
         }
 
         const listStyle = {
@@ -92,10 +92,10 @@ class Profile extends Component {
                     Your initial flight is headed to <strong>{this.props.profile.goingTo}</strong> ({this.props.profile.goingToAirport}).
                 </div>
                 <div style={generalInfo}>
-                    {this.props.profile.adjacentBookings.length === 0 ? (
-                        <span>You're travelling with {this.props.profile.adjacentBookings} other people.</span>
+                    {this.props.profile.adjacentBookings != 0 ? (
+                        <span>You're traveling with {this.props.profile.adjacentBookings} other people.</span>
                     ) : (
-                            <span>You're travelling by yourself.</span>
+                            <span>You're traveling by yourself.</span>
                         )}
                 </div>
                 <hr style={hrStyle} />
@@ -117,7 +117,7 @@ class Profile extends Component {
                         <span style={textStyle}>{this.props.profile.address[0].line1}</span>
                     </div>
                     <div style={profileElement}>
-                        <i className="fas fa-briefcase" style={iconStyle}></i>
+                        <i className={this.props.profile.businessTrip ? "fas fa-briefcase" : "fas fa-user-friends"} style={iconStyle}></i>
                         <span style={textStyle}>{this.props.profile.businessTrip ? "Traveling for work" : "Traveling with family"}</span>
                     </div>
                 </div>

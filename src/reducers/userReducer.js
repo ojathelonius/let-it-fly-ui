@@ -1,10 +1,10 @@
 /* Demo purposes : initial destination is set to Paris */
 
 const initialState = {
-    defaultDemoProfile : 0,
+    defaultDemoProfile : 1,
     departingAirport: 'SIN',
-    initialDestination: 'CDG',
-    prettyInitialDestination: 'Paris',
+    initialDestination: 'SFO',
+    prettyInitialDestination: 'San Francisco',
     profile: null,
     isFetching: false
 }
