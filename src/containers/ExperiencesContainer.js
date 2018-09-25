@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({ experiences: state.experiencesRe
     experienceModal: state.modalReducer.experienceModal,
     selectedExperience: state.modalReducer.selectedExperience,
     userProfile:  state.userReducer.profile,
-    defaultDemoProfile : state.userReducer.defaultDemoProfile,
+    demoProfile : state.userReducer.demoProfile,
     isFetchingProfile : state.userReducer.isFetching
 });
 

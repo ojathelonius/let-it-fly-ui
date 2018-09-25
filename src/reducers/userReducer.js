@@ -1,7 +1,5 @@
-/* Demo purposes : initial destination is set to Paris */
-
 const initialState = {
-    defaultDemoProfile : 1,
+    demoProfile : 1,
     departingAirport: 'SIN',
     initialDestination: 'SFO',
     prettyInitialDestination: 'San Francisco',
@@ -23,7 +21,7 @@ const userReducer = (state = initialState, action) => {
                 isFetching: false,
                 profile: action.payload.profile,
                 listAllProfiles: action.payload.allProfiles,
-                defaultDemoProfile: action.payload.profileId
+                demoProfile: action.payload.profileId
             }
         default:
             return state

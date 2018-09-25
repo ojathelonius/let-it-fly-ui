@@ -4,7 +4,7 @@ import { Spin, List, Menu, Dropdown, Icon } from 'antd';
 class Profile extends Component {
 
     componentWillMount() {
-        this.props.updateProfile(this.props.defaultDemoProfile);
+        this.props.updateProfile(this.props.demoProfile);
     }
 
     onClickDropDown = ({ key }) => {
@@ -12,10 +12,10 @@ class Profile extends Component {
     };
 
     createDropDown = () => {
-        console.log(this.props.defaultDemoProfile)
+        console.log(this.props.demoProfile)
         if (this.props.listAllProfiles != null){
             const table = this.props.listAllProfiles.map((profile) => {
-                if (profile[0].id == this.props.defaultDemoProfile){
+                if (profile[0].id == this.props.demoProfile){
                     return (<Menu.Item disabled key={profile[0].id}>{profile[0].firstName + " " + profile[0].lastName}</Menu.Item>)
                 }
                 else{
@@ -106,6 +106,14 @@ class Profile extends Component {
             marginRight: '6px'
         }
 
+        const dropdownStyle = {
+            padding: '6px 12px',
+            backgroundColor: '#fcb130',
+            color: 'black',
+            borderRadius: '3px',
+            marginBottom: '20px'
+        }
+
         if (this.props.isFetchingProfile || !this.props.profile) {
             return (<div style={mainContainer}><Spin size="large" /></div>);
         }
@@ -114,7 +122,7 @@ class Profile extends Component {
         return (
             <div style={mainContainer}>
                 <Dropdown overlay={menu}>
-                    <a className="ant-dropdown-link" href="#">
+                    <a className="ant-dropdown-link" href="#"  style={dropdownStyle}>
                         Change profile <Icon type="down" />
                     </a>
                 </Dropdown>

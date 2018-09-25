@@ -5,7 +5,7 @@ import { fetchProfile } from '../actions/profile'
 const mapStateToProps = (state, ownProps) => ({
     profile: state.userReducer.profile,
     isFetchingProfile : state.userReducer.isFetching,
-    defaultDemoProfile : state.userReducer.defaultDemoProfile,
+    demoProfile : state.userReducer.demoProfile,
     listAllProfiles : state.userReducer.listAllProfiles
 });
 

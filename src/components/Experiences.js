@@ -9,7 +9,7 @@ class Experiences extends Component {
     componentWillMount() {
         /* Singapor airport for demo purposes */
         this.props.updateExperiences('SIN');
-        this.props.updateProfile(this.props.defaultDemoProfile);
+        this.props.updateProfile(this.props.demoProfile);
     }
 
     render() {
@@ -66,7 +66,7 @@ class Experiences extends Component {
             <div style={experiencesStyle}>
                 <div style={largeFont}>
 
-                    {this.props.userProfile ? (
+                    {(this.props.userProfile && !this.props.isFetchingProfile) ? (
                         this.props.userProfile.businessTrip ?
                             (<span>As you're travelling for business purposes, here are some entertaining activities to relax between work sessions.</span>)
                             : (<span>Below are some entertaining activities for you to enjoy while waiting for your next flight.</span>)
@@ -79,7 +79,7 @@ class Experiences extends Component {
                 </div>
 
                     {
-                        (!this.props.userProfile) ? 
+                        (!this.props.userProfile || this.props.isFetchingProfile) ? 
                         (<Spin size="large" style={{marginTop: '30px'}}/>)
                         : (<RowTileContainer>
                             {experienceDisplay}
