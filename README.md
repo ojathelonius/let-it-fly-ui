@@ -7,13 +7,13 @@ A demo version lives on https://letitfly.johanet.fr/
 The back-end runs that is consumed by this SPA lives on https://api.johanet.fr/
 
 ## User story
-In case of an overbooked flight, passengers can quickly reschedule your trip and avoid boring waiting times by finding entertainment sources nearby, customized for their profile.
+In case of an overbooked flight, passengers can quickly reschedule their trip and avoid boring waiting times by finding entertainment sources nearby, customized for their profile.
 
 * Book alternate flights, local activites or hotels
 * Try switching profiles in the "My Profile" page to see how it affects your custom picked activities
 
 ## Data
-The app displays data coming from the provided API as a part of the challenge resources, as well as dummy data stored as JSON that is quite similar to the one you could get from real services, such as :
+The app displays data coming from the provided API as part of the challenge resources, as well as dummy data stored as JSON that is quite similar to the one you could get from real services, such as :
 * AirBnB
 * Booking.com
 * TripAdvisor
