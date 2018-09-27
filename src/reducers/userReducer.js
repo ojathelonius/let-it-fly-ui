@@ -1,8 +1,6 @@
 const initialState = {
     demoProfile : 1,
     departingAirport: 'SIN',
-    initialDestination: 'SFO',
-    prettyInitialDestination: 'San Francisco',
     profile: null,
     isFetching: false,
     listAllProfiles : null

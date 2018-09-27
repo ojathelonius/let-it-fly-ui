@@ -6,7 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import Header from './components/Header';
 import allReducers from './reducers/allReducers';
 import thunk from 'redux-thunk';
-import Home from './components/Home';
+import HomeContainer from './containers/HomeContainer';
 import Footer from './components/Footer';
 import FlightsContainer from './containers/FlightsContainer';
 import ExperiencesContainer from './containers/ExperiencesContainer';
@@ -35,7 +35,7 @@ class App extends Component {
             <div style={bodyStyle}>
               <Header />
 
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={HomeContainer} />
               <Route exact path="/flights" component={FlightsContainer} />
               <Route exact path="/experiences" component={ExperiencesContainer} />
               <Route exact path="/bookings" component={BookingsContainer} />

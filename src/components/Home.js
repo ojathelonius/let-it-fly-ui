@@ -7,6 +7,11 @@ import entertainmentImg from '../assets/images/entertainment-img.jpg';
 import hotelImg from '../assets/images/hotel-img.jpg';
 
 class Home extends Component {
+
+    componentWillMount() {
+        this.props.updateProfile(this.props.demoProfile);
+    }
+
     render() {
         const homeStyle = {
             display: 'flex',

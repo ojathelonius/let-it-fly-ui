@@ -5,16 +5,24 @@ import { resetBookings } from './bookings';
 export const fetchProfile = (id) => (async (dispatch) => {
     dispatch(requestProfile());
     try {
-        const response = await axios({
+
+        let out = {};
+
+
+        let proResponse = await axios({
+            method: 'get',
+            url: `${config.apiUrl}/profile/${id}`
+        });
+        out.profile =  proResponse.data;
+
+        let allProResponse = await axios({
             method: 'get',
             url: `${config.apiUrl}/profile`
         });
-        const pro = response.data.filter(x => x.id == id)[0];
-        const allPro = response.data.map(x => [{"firstName":x.firstName, "lastName":x.lastName, "id":x.id}]);
-        let out = {};
-        out.profile = pro;
-        out.allProfiles = allPro;
+
+        out.allProfiles = allProResponse.data.map(x => [{"firstName":x.firstName, "lastName":x.lastName, "id":x.id}]);
         out.profileId = id;
+
         dispatch(receiveProfile(out));
     } catch(e) {
         console.log(e)

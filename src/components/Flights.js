@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Spin, Modal } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import ColTileContainer from './ColTileContainer';
 import FlightCardContainer from '../containers/FlightCardContainer';
 
@@ -8,7 +8,10 @@ class Flights extends Component {
 
     componentWillMount() {
         /* SIN by default, as the Singapore Airlines API only provides flights from this airport */
-        this.props.updateFlights('SIN', this.props.user.initialDestination);
+        if(!this.props.user.profile) {
+            window.location.replace('/');
+        }
+        this.props.updateFlights('SIN', this.props.user.profile.goingToAirport); 
         // this.props.updateWeather();
     }
 
@@ -95,7 +98,7 @@ class Flights extends Component {
         }
         return (
             <div style={flightsStyle}>
-                <div style={largeFont}>Your initial flight was headed to {this.props.user.prettyInitialDestination}. Below are some alternative paths that you can use :</div>
+                <div style={largeFont}>Your initial flight was headed to {this.props.user.profile.goingTo}. Below are some alternative paths that you can use :</div>
                 <ColTileContainer>
                     {this.props.flights.map(flight => (<FlightCardContainer flight={flight} weather={this.getAirportWeather('SIN')} key={flight.id} />))}
                 </ColTileContainer>
