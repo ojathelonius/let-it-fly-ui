@@ -83,9 +83,13 @@ class FlightCard extends Component {
 
         return (
             <div style={mainContainer}>
-                {(itinerary.length) > 1 ? (
-                    <span style={titleStyle}>Stay in <span style={{ fontWeight: 'bold' }}>{itinerary[0].toCity}</span> and reach your destination in <span style={{ fontWeight: 'bold' }}>{this.props.flight.timeInBetween}</span>.</span>
-                ) : (
+                {(itinerary.length) > 1 ? 
+                    this.props.flight.timeInBetween[0]==='0' ? (
+                        <span style={titleStyle}>Short layover in <span style={{ fontWeight: 'bold' }}>{itinerary[0].toCity}</span> for <span style={{ fontWeight: 'bold' }}>{this.props.flight.timeInBetween}</span>.</span>
+                    ) : (
+                        <span style={titleStyle}>Stay in <span style={{ fontWeight: 'bold' }}>{itinerary[0].toCity}</span> for <span style={{ fontWeight: 'bold' }}>{this.props.flight.timeInBetween}</span> before reaching {itinerary[2].toCity}.</span>
+                    )
+                 : (
                         <span style={titleStyle}>Take a direct flight to {itinerary[0].toCity} and you'll be there in <span style={{ fontWeight: 'bold' }}>{itinerary[0].duration}</span> !</span>
                     )}
 
