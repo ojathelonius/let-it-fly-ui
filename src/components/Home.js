@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'antd';
+import { Card, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import RowTileContainer from './RowTileContainer';
 import flightImg from '../assets/images/flight-img.jpg';
@@ -78,6 +78,22 @@ class Home extends Component {
         const iconSubtitle = {
             fontSize: '16px',
             marginBottom: '10px'
+        }
+
+        const mainContainer = {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '20px',
+            flex: 1
+        }
+
+        if (this.props.isFetchingProfile || !this.props.profile) {
+            return (
+            <div style={mainContainer}>
+            <h1 style={{color: '#1f4a87', fontSize: '22px'}}>Fetching your profile... This will just take a second.</h1>
+            <Spin size="large" /></div>
+            );
         }
 
         return (

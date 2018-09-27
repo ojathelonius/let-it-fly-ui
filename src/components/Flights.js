@@ -13,6 +13,7 @@ class Flights extends Component {
         }
         this.props.updateFlights('SIN', this.props.user.profile.goingToAirport); 
         // this.props.updateWeather();
+        console.log(this.props.flights)
     }
 
     getAirportWeather(airportCode) {
