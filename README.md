@@ -1,6 +1,6 @@
-# Singapor Airlines AppChallenge - Let it fly (front-end)
+# Singapore Airlines AppChallenge - Let it fly (front-end)
 
-This is the front-end of the  ["Let it fly"](https://appchallenge.singaporeair.com/en/challenges/appchallenge-2018/teams/360) entry of the Singapor Airlines AppChallenge 2018.
+This is the front-end of the  ["Let it fly"](https://appchallenge.singaporeair.com/en/challenges/appchallenge-2018/teams/360) entry of the Singapore Airlines AppChallenge 2018.
 
 A demo version lives on https://letitfly.johanet.fr/
 
