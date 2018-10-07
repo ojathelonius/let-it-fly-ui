@@ -6,6 +6,8 @@ A demo version lives on https://letitfly.johanet.fr/
 
 The back-end runs that is consumed by this SPA lives on https://api.johanet.fr/
 
+Watch the **explanation video** [on YouTube](https://youtu.be/3PAMQNL95pk).
+
 ## User story
 In case of an overbooked flight, passengers can quickly reschedule their trip and avoid boring waiting times by finding entertainment sources nearby, customized for their profile.
 
