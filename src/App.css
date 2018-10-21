@@ -10,7 +10,7 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f7f7f7;
-    color: #443f33;
+    color: #00266b;
     margin: 0;
 }
 
@@ -46,7 +46,7 @@ a span:hover {
 }
 /* There doesn't seem to be an inline styling for ant modal headers */
 .ant-modal-header {
-    background-color: #fcb130;
+    background-color: #e4e4e4;
 }
 
 .ant-modal-title {

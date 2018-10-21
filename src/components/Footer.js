@@ -13,7 +13,7 @@ class Footer extends Component {
         }
         return (
             <div style={footerStyle}>
-                <div> <a href="https://appchallenge.singaporeair.com/en/challenges/appchallenge-2018" title="Singapore Airlines app challenge"> Singapor Airlines AppChallenge</a></div>
+                <div> <a href="https://appchallenge.singaporeair.com/en/challenges/appchallenge-2018" title="Singapore Airlines App Challenge"> Singapore Airlines AppChallenge</a></div>
                 <div>See repo on <a href="https://github.com/ojathelonius/let-it-fly-ui" title="GitHub repo"> <i className="fab fa-github"></i> GitHub</a></div>
             </div>
         );

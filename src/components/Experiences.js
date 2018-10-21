@@ -7,7 +7,7 @@ import { Map, TileLayer, Marker } from 'react-leaflet'
 class Experiences extends Component {
 
     componentWillMount() {
-        /* Singapor airport for demo purposes */
+        /* Singapore airport for demo purposes */
         this.props.updateExperiences('SIN');
         this.props.updateProfile(this.props.demoProfile);
     }
