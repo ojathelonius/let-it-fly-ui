@@ -25,3 +25,10 @@ export const receiveHotels = (json) => {
     })
 }
 
+export const approved = (index) => {
+    return ({
+        type: 'APPROVED',
+        payload: index
+    })
+}
+

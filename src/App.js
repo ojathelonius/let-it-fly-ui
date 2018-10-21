@@ -13,6 +13,7 @@ import ExperiencesContainer from './containers/ExperiencesContainer';
 import BookingsContainer from './containers/BookingsContainer';
 import HotelsContainer from './containers/HotelsContainer';
 import ProfileContainer from './containers/ProfileContainer';
+import DashboardContainer from './containers/DashboardContainer';
 
 import './App.css';
 
@@ -41,7 +42,8 @@ class App extends Component {
               <Route exact path="/bookings" component={BookingsContainer} />
               <Route exact path="/hotels" component={HotelsContainer} />
               <Route exact path="/profile" component={ProfileContainer} />
-              <Footer />
+              <Route exact path="/dashboard" component={DashboardContainer} />
+
             </div>
           </Switch>
         </Router>

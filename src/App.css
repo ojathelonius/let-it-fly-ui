@@ -7,11 +7,58 @@ html {
     margin: 0;
 }
 
+.pax span {
+    flex: 1;
+}
+
+ul.legende {
+    list-style: none;
+}
+
+.vol {
+    background-color: #fcb130;
+}
+
+.nonvol {
+    background-color: #e3a51aa1;
+}
+
+.nonseen {
+    background-color: #c8c8c8;
+}
+
+.pie-chart-label {
+    fill: #2f2d2d !important;
+    font-size: 23px !important;
+    font-weight: 600 !important;
+}
+
+.react-tabs__tab--selected {
+    background: #f7f7f7;
+    border-color: #aaa;
+    color: black;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+}
+
+li {
+    display: inline-block;
+    padding: 10px;
+}
+
+span.carree {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f7f7f7;
     color: #1f4a87;
     margin: 0;
+    overflow-y: scroll;
 }
 
 #root {

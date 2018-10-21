@@ -10,7 +10,7 @@ class Header extends Component {
             color: '#1f4a87',
             fontFamily: 'NoTime',
             display: 'flex',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
             alignItems: 'center',
             fontSize: '50px',
             textTransform: 'uppercase',
@@ -60,15 +60,13 @@ class Header extends Component {
         }
 
         return (<div style={headerContainerStyle}>
-            <div style={sideMenuStyleLeft}><Link to="/profile" style={headerLink}><i className="fas fa-user" style={headerIconStyle}></i><span style={menuHeaderStyle} className='mobile-hidden'>View my profile</span></Link></div>
             <Link to="/">
                 <div style={logoContainerStyle}>
                     <img src={singaporeLogo} style={logoStyle} alt="Logo Singapore Airlines" />
                     Let it fly
             </div>
             </Link >
-            <div style={sideMenuStyleRight}><Link to="/bookings" style={headerLink}><i className="fas fa-box-open" style={headerIconStyle}></i><span style={menuHeaderStyle} className='mobile-hidden'>Check my bookings</span></Link></div>
-        </div >
+            </div >
 
         );
     }

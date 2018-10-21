@@ -1,5 +1,7 @@
 const initialState = {
-    hotels: []
+    hotels: [],
+    approved: [],
+    vol: [5,8,10,16]
 }
 
 const hotelsReducer = (state = initialState, action) => {
@@ -12,6 +14,18 @@ const hotelsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 hotels: action.payload
+            }
+        case 'APPROVED':
+            let a = [...state.vol];
+            console.log(a);
+            console.log(action.payload);
+            let b = a[action.payload];
+            a.splice(action.payload,1);
+            let c = [...state.approved, b];
+            return {
+                ...state,
+                approved: c,
+                vol: a
             }
         default:
             return state
