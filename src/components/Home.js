@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Spin } from 'antd';
+import { Card, Spin, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import RowTileContainer from './RowTileContainer';
 import flightImg from '../assets/images/flight-img.jpg';
@@ -38,16 +38,16 @@ class Home extends Component {
 
         const tileStyle = {
             margin: '20px',
-            border: '1px solid #fcb130',
+            border: '1px solid #857E6C',
         }
 
         const bodyStyle = {
             padding: 0,
-            borderTop: '1px solid #fcb130'
+            borderTop: '1px solid #857E6C'
         }
 
         const headStyle = {
-            backgroundColor: '#fcb130'
+            backgroundColor: '#white'
         }
 
         const paragraphStyle = {
@@ -88,11 +88,13 @@ class Home extends Component {
             flex: 1
         }
 
+        const spinIcon = <Icon type="loading" style={{ fontSize: 22, color: '#424242' }} spin />;
+
         if (this.props.isFetchingProfile || !this.props.profile) {
             return (
             <div style={mainContainer}>
-            <h1 style={{color: '#1f4a87', fontSize: '22px'}}>Fetching your profile... This will just take a second.</h1>
-            <Spin size="large" /></div>
+            <h1 style={{color: '#443f33', fontSize: '22px'}}>Fetching your profile... This will just take a second.</h1>
+            <Spin  indicator={spinIcon}/></div>
             );
         }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Spin, Modal } from 'antd';
+import { Spin, Modal, Icon } from 'antd';
 import { Link, Redirect } from 'react-router-dom';
 import ColTileContainer from './ColTileContainer';
 import FlightCardContainer from '../containers/FlightCardContainer';
@@ -64,7 +64,7 @@ class Flights extends Component {
             alignItems: 'center',
             height: '40px',
             justifyContent: 'center',
-            backgroundColor: '#fcb130',
+            backgroundColor: '#857e6c',
             padding: '10px',
             borderRadius: '3px',
             width: '150px',
@@ -89,10 +89,12 @@ class Flights extends Component {
             alignItems: 'center'
         }
 
+        const spinIcon = <Icon type="loading" style={{ fontSize: 22, color: '#424242' }} spin />;
+
         const itinerary = this.props.selectedFlight.itinerary ? [].concat(...this.props.selectedFlight.itinerary.map(e => ['layover', e])).slice(1) : '';
 
         if (this.props.isFetchingFlights || !this.props.flights) {
-            return (<Spin size="large" />);
+            return (<Spin indicator={spinIcon}/>);
         }
         if (this.props.hasBookedFlights) {
             return (<div style={alreadyBooked}><div>Thank you for booking your flight !</div><div style={hotelSuggestion}>Staying overnight ? Check out our <Link to="/hotels" ><span style={hotelsLink}>custom picked hotels</span></Link> near your stop-over location !</div></div>)

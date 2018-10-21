@@ -6,17 +6,17 @@ class FlightCard extends Component {
     render() {
         const tileStyle = {
             margin: '5px 20px',
-            border: '1px solid #fcb130',
+            border: '1px solid #857e6c',
             flex: '0 1 500px'
         }
 
         const bodyStyle = {
-            borderTop: '1px solid #fcb130',
+            borderTop: '1px solid #857e6c',
             position: 'relative'
         }
 
         const headStyle = {
-            backgroundColor: '#fcb130'
+            backgroundColor: '#857e6c'
         }
 
         const rowItinerary = {
@@ -62,9 +62,9 @@ class FlightCard extends Component {
             position: 'absolute',
             bottom: '5px',
             right: '5px',
-            backgroundColor: '#fcb130',
+            backgroundColor: '#857e6c',
             color: '#00266b',
-            border: '1px solid #fcb130',
+            border: '1px solid #857e6c',
         }
 
         const bookBtnStyle = {

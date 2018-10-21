@@ -10,16 +10,16 @@ class ExperienceCard extends Component {
 
         const tileStyle = {
             margin: '20px',
-            border: '1px solid #fcb130',
+            border: '1px solid #857e6c',
         }
 
         const bodyStyle = {
-            borderTop: '1px solid #fcb130',
+            borderTop: '1px solid #857e6c',
             padding: '0'
         }
 
         const headStyle = {
-            backgroundColor: '#fcb130'
+            backgroundColor: 'white'
         }
 
         

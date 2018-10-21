@@ -8,8 +8,8 @@ class Footer extends Component {
             justifyContent: 'space-evenly',
             alignItems: 'center',
             flex: '0 0 60px',
-            backgroundColor: '#fcb130',
-            color: '#00266b'
+            backgroundColor: '#bbb39f',
+            color: '#443f33'
         }
         return (
             <div style={footerStyle}>

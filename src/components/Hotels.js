@@ -28,7 +28,7 @@ class Hotels extends Component {
             alignItems: 'center',
             height: '40px',
             justifyContent: 'center',
-            backgroundColor: '#fcb130',
+            backgroundColor: '#857e6c',
             padding: '10px',
             borderRadius: '3px',
             width: '150px',

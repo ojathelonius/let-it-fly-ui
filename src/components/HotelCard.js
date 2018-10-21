@@ -18,7 +18,7 @@ class HotelCard extends Component {
             width: '90%',
             backgroundColor: 'white',
             borderRadius: '5px',
-            border: '1px solid #1f4a87',
+            border: '1px solid #857e6cd1',
             position: 'relative',
             marginBottom: '30px'
         }
@@ -37,7 +37,7 @@ class HotelCard extends Component {
 
         const bodyStyle = {
             padding: 0,
-            borderTop: '1px solid #1f4a87'
+            borderTop: '1px solid #857e6cd1'
         }
 
         const mapStyle = {

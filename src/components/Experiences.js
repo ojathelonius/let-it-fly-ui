@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Spin, Modal, Button } from 'antd';
+import { Spin, Modal, Button, Icon } from 'antd';
 import RowTileContainer from './RowTileContainer';
 import ExperienceCardContainer from '../containers/ExperienceCardContainer';
 import { Map, TileLayer, Marker } from 'react-leaflet'
@@ -62,6 +62,8 @@ class Experiences extends Component {
             marginTop: '20px'
         }
 
+        const spinIcon = <Icon type="loading" style={{ fontSize: 22, color: '#424242' }} spin />;
+
         return (
             <div style={experiencesStyle}>
                 <div style={largeFont}>
@@ -80,7 +82,7 @@ class Experiences extends Component {
 
                     {
                         (!this.props.userProfile || this.props.isFetchingProfile) ? 
-                        (<Spin size="large" style={{marginTop: '30px'}}/>)
+                        (<Spin  indicator={spinIcon} style={{marginTop: '30px'}}/>)
                         : (<RowTileContainer>
                             {experienceDisplay}
                         </RowTileContainer>)

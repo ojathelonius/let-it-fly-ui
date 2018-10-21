@@ -28,6 +28,8 @@ class Profile extends Component {
 
     render() {
 
+        const spinIcon = <Icon type="loading" style={{ fontSize: 22, color: '#424242' }} spin />;
+
         const menu = (
             <Menu onClick={this.onClickDropDown}>
               {this.createDropDown()}
@@ -107,14 +109,14 @@ class Profile extends Component {
 
         const dropdownStyle = {
             padding: '6px 12px',
-            backgroundColor: '#fcb130',
+            backgroundColor: '#white',
             color: 'black',
             borderRadius: '3px',
             marginBottom: '20px'
         }
 
         if (this.props.isFetchingProfile || !this.props.profile) {
-            return (<div style={mainContainer}><Spin size="large" /></div>);
+            return (<div style={mainContainer}><Spin indicator={spinIcon}/></div>);
         }
 
 

@@ -6,8 +6,7 @@ import singaporeLogo from '../assets/images/logo-singapore.png';
 class Header extends Component {
     render() {
         const headerContainerStyle = {
-            backgroundColor: '#f7f7f7',
-            color: '#1f4a87',
+            color: '#424242',
             fontFamily: 'NoTime',
             display: 'flex',
             justifyContent: 'space-between',
@@ -20,7 +19,8 @@ class Header extends Component {
 
         const logoContainerStyle = {
             display: 'flex',
-            flexDirection: 'column'
+            flexDirection: 'column', 
+            color: '#424242'
         };
 
         const logoStyle = {
@@ -38,12 +38,12 @@ class Header extends Component {
         }
         const sideMenuStyleLeft = {
             ...sideMenuStyle,
-            backgroundImage: 'linear-gradient(to right, #fcb130 , #f7f7f7)'
+            backgroundImage: 'linear-gradient(to right, #9E917E , #f7f7f7)'
         }
 
         const sideMenuStyleRight = {
             ...sideMenuStyle,
-            backgroundImage: 'linear-gradient(to left, #fcb130 , #f7f7f7)'
+            backgroundImage: 'linear-gradient(to left, #9E917E , #f7f7f7)'
         }
 
         const menuHeaderStyle = {

@@ -10,7 +10,7 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f7f7f7;
-    color: #1f4a87;
+    color: #443f33;
     margin: 0;
 }
 
@@ -87,4 +87,8 @@ a span:hover {
     .mobile-hidden {
         display: inline-flex;
     }
+}
+
+body {
+    background: url("assets/images/pattern.jpg");
 }

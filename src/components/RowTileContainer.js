@@ -9,7 +9,7 @@ class RowTileContainer extends Component {
             flexWrap: 'wrap',
             justifyContent: 'center',
             width: '100%',
-            backgroundColor: '#00266b',
+            backgroundColor: '#e4e4e4',
             boxShadow: 'inset 0px 11px 8px -10px black, inset 0px -11px 8px -10px black'
         }
 
