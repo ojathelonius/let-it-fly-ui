@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Dashboard from '../components/Dashboard'
-import { approved } from '../actions/hotels'
+import { approved, volunteered } from '../actions/hotels'
 
 const mapStateToProps = (state, ownProps) => ({
     vol : state.hotelsReducer.vol, 
@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    approvedd: (index) => dispatch(approved(index))
+    approvedd: (index) => dispatch(approved(index)),
+    vold: (index) => dispatch(volunteered(index))
 });
 
 const DashboardContainer = connect(

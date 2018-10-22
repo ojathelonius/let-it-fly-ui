@@ -27,7 +27,7 @@ class ListItem2 extends Component {
                 <span>{this.props.item.bookingReference}</span>
                 <span>+{this.props.item.contact[0].phoneNumber}</span>
                 <span style={span_center}><i class="fas fa-bell" onClick={() => openNotification("Customer notified", "The customer was just sent a email and/or a phone notification.")} ></i></span>
-                <span style={span_center}><i class="fas fa-check" onClick={() => this.props.approved(this.props.index)} ></i></span>
+                <span style={span_center}><i class="fas fa-check" onClick={() => {this.props.approved(this.props.index);openNotification("Volunteer approved", "The customer has been notified he won't be on the plane.");}} ></i></span>
             </div>
         );
 

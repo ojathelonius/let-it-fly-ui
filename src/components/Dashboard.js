@@ -11,8 +11,14 @@ class Dashboard extends Component {
 
     constructor() {
         super();
-        this.state = { tabIndex: 0 };
+        this.state = { tabIndex: 0, toCreate: [1,15,21,22], i: 0};
       }
+
+
+    newVolunteer = () => {
+        this.props.vold(this.state.toCreate[this.state.i]);
+        this.setState({i:this.state.i+1})
+    }
 
 
     render() {
@@ -53,7 +59,7 @@ class Dashboard extends Component {
 
         return (
             <div style={mainContainer}>  
-                <div style={flight}>
+                <div style={flight} onClick={() => this.newVolunteer()}>
                     Flight SG890 - {9-this.props.app.length} volunteers needed    
                 </div>      
                 <div style={listing}>
@@ -62,9 +68,9 @@ class Dashboard extends Component {
 
                 <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                     <TabList>
-                    <Tab>All passengers</Tab>
-                    <Tab>Volunteers</Tab>
-                    <Tab>Approved volunteers</Tab>
+                    <Tab>All passengers ({data.response.passengerList.length})</Tab>
+                    <Tab>Volunteers ({this.props.vol.length})</Tab>
+                    <Tab>Approved volunteers ({this.props.app.length})</Tab>
                     </TabList>
                     <TabPanel>{ll}</TabPanel>
                     <TabPanel>{ll2}</TabPanel>

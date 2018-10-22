@@ -32,3 +32,10 @@ export const approved = (index) => {
     })
 }
 
+export const volunteered = (index) => {
+    return ({
+        type: 'VOL',
+        payload: index
+    })
+}
+

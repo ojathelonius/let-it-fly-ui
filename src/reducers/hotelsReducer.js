@@ -27,6 +27,11 @@ const hotelsReducer = (state = initialState, action) => {
                 approved: c,
                 vol: a
             }
+        case 'VOL':
+            return {
+                ...state,
+                vol: [...state.vol, action.payload]
+            }
         default:
             return state
     }

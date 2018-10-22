@@ -28,7 +28,7 @@ class Graphiquee extends Component {
             data={[
             {key: (this.props.vol.length>0)?this.props.vol.length:'', value: this.props.vol.length, color: '#e3a51aa1'},
             {key: (this.props.app.length>0)?this.props.app.length:'', value: this.props.app.length, color: '#fcb130'},
-            {key: 57 - this.props.app.length - this.props.vol.length, value: 57 - this.props.app.length - this.props.vol.length, color: '#c8c8c8'}
+            {key: 25 - this.props.app.length - this.props.vol.length, value: 25 - this.props.app.length - this.props.vol.length, color: '#c8c8c8'}
             ]}
             innerHoleSize={200}
             styles={{
